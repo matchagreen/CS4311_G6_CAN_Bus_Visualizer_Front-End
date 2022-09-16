@@ -1,6 +1,16 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Cloning
+
+When cloning this repository, run the following command:
+
+`npm install`
+
+This will install all the dependencies you need as we make progress.
+
+## Adding features
+
+Create a personal branch for your work. Add the new feature that you are working on to your branch. Once you are content with your work, create a pull request and post it in the pull-request channel for review.
 
 ## Available Scripts
 
