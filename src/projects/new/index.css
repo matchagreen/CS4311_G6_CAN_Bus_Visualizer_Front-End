@@ -1,0 +1,17 @@
+div.new-project {
+    margin: 0px 40px;
+}
+
+h1.new-project-title {
+    margin: 40px 0px;
+}
+
+div.new-project-buttons {
+    margin: 30px 0px;
+}
+
+div.new-project-buttons .space {
+    width: 20px;
+    height: auto;
+    display: inline-block;
+  }
