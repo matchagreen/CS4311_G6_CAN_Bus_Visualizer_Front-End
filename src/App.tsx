@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Intro from './entrypoint/index'
 import Projects from './projects/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import PageNotFound from './PageNotFound';
+import PageNotFound from './pageNotFound/index';
 
 function App() {
   return (

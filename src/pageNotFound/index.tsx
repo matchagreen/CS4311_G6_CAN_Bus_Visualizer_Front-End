@@ -1,6 +1,6 @@
 import React from 'react';
-import './PageNotFound.css';
-import dinoGif from './type/dino.gif';
+import './index.css';
+import dinoGif from '../type/dino.gif';
 import {useNavigate} from "react-router-dom";
 
 const PageNotFound= () =>{
