@@ -22,11 +22,16 @@ function NewProject() {
         <div className='new-project'>
             <h1 className='new-project-title'>New Project</h1>
             <NewProjectForm state={state} setState={setState} onCancel={onCancel}/>
+            <div className='new-project-buttons'>
+                <Button onClick={onCancel}>Cancel</Button>
+                <div className='space'></div>
+                <Button type='submit'>Done</Button>
+            </div>
         </div>
     )
 }
 
-function NewProjectForm(state: any, setState: any, onCancel: ()=>void) {
+function NewProjectForm(state: any, setState: any) {
     return (
         <div className='new-project-form'>
             <Form>
@@ -59,11 +64,6 @@ function NewProjectForm(state: any, setState: any, onCancel: ()=>void) {
                         <Form.Label>Blacklist</Form.Label>
                         <Form.Control type="file" />
                     </Form.Group>
-                </div>
-                <div className='new-project-buttons'>
-                    <Button onClick={onCancel}>Cancel</Button>
-                    <div className='space'></div>
-                    <Button type='submit'>Done</Button>
                 </div>
             </Form>
         </div>
