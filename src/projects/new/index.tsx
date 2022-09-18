@@ -18,6 +18,11 @@ function NewProject() {
         navigate(path)
     }
 
+    const onSubmit = () => {
+        // TODO: Add call to api and redirect
+        console.log(state)
+    }
+
     return (
         <div className='new-project'>
             <h1 className='new-project-title'>New Project</h1>
@@ -25,7 +30,7 @@ function NewProject() {
             <div className='new-project-buttons'>
                 <Button onClick={onCancel}>Cancel</Button>
                 <div className='space'></div>
-                <Button type='submit'>Done</Button>
+                <Button type='submit' onClick={onSubmit}>Done</Button>
             </div>
         </div>
     )
