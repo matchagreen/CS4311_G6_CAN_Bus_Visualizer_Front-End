@@ -1,8 +1,19 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {useNavigate} from "react-router-dom";
-import {useState} from 'react';
+import React, {useState} from 'react';
 import './index.css';
+
+interface projectState {
+    projectName: string,
+    baudRate: number,
+    analystInitials: string,
+}
+
+interface stateProps {
+    state: projectState
+    setState: React.Dispatch<React.SetStateAction<projectState>>
+}
 
 function NewProject() {
     const [state, setState] = useState({
@@ -36,7 +47,7 @@ function NewProject() {
     )
 }
 
-function NewProjectForm(state: any, setState: any) {
+function NewProjectForm({state, setState}: stateProps) {
     return (
         <div className='new-project-form'>
             <Form>
