@@ -26,7 +26,7 @@ function NewProject() {
     return (
         <div className='new-project'>
             <h1 className='new-project-title'>New Project</h1>
-            <NewProjectForm state={state} setState={setState} onCancel={onCancel}/>
+            <NewProjectForm state={state} setState={setState}/>
             <div className='new-project-buttons'>
                 <Button onClick={onCancel}>Cancel</Button>
                 <div className='space'></div>
