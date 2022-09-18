@@ -21,47 +21,53 @@ function NewProject() {
     return (
         <div className='new-project'>
             <h1 className='new-project-title'>New Project</h1>
-            <div className='new-project-form'>
-                <Form>
-                    <div className='new-project-fields'>
-                        <Form.Group className='mb-3' controlId='formGroupText'>
-                            <Form.Label>Project name</Form.Label>
-                            <Form.Control
-                                type='text'
-                                name='projectName'
-                                value={state.projectName}
-                                onChange={(e)=>setState({...state, projectName: e.target.value})}
-                                placeholder='PBJ'
-                            />
-                        </Form.Group>
-                        <Form.Group className='mb-3' controlId='formGroupText'>
-                            <Form.Label>Analyst initials</Form.Label>
-                            <Form.Control
-                                type='text'
-                                name='analystInitials'
-                                value={state.analystInitials}
-                                onChange={e=>setState({...state, analystInitials: e.target.value})}
-                                placeholder='PBJ'
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="formFile" className="mb-3">
-                            <Form.Label>DBC file</Form.Label>
-                            <Form.Control type="file" />
-                        </Form.Group>
-                        <Form.Group controlId="formFile" className="mb-3">
-                            <Form.Label>Blacklist</Form.Label>
-                            <Form.Control type="file" />
-                        </Form.Group>
-                    </div>
-                    <div className='new-project-buttons'>
-                        <Button onClick={onCancel}>Cancel</Button>
-                        <div className='space'></div>
-                        <Button type='submit'>Done</Button>
-                    </div>
-                </Form>
-            </div>
+            <NewProjectForm state={state} setState={setState} onCancel={onCancel}/>
         </div>
     )
+}
+
+function NewProjectForm(state: any, setState: any, onCancel: ()=>void) {
+    return (
+        <div className='new-project-form'>
+            <Form>
+                <div className='new-project-fields'>
+                    <Form.Group className='mb-3' controlId='formGroupText'>
+                        <Form.Label>Project name</Form.Label>
+                        <Form.Control
+                            type='text'
+                            name='projectName'
+                            value={state.projectName}
+                            onChange={(e)=>setState({...state, projectName: e.target.value})}
+                            placeholder='Project name'
+                        />
+                    </Form.Group>
+                    <Form.Group className='mb-3' controlId='formGroupText'>
+                        <Form.Label>Analyst initials</Form.Label>
+                        <Form.Control
+                            type='text'
+                            name='analystInitials'
+                            value={state.analystInitials}
+                            onChange={e=>setState({...state, analystInitials: e.target.value})}
+                            placeholder='PBJ'
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="formFile" className="mb-3">
+                        <Form.Label>DBC file</Form.Label>
+                        <Form.Control type="file" />
+                    </Form.Group>
+                    <Form.Group controlId="formFile" className="mb-3">
+                        <Form.Label>Blacklist</Form.Label>
+                        <Form.Control type="file" />
+                    </Form.Group>
+                </div>
+                <div className='new-project-buttons'>
+                    <Button onClick={onCancel}>Cancel</Button>
+                    <div className='space'></div>
+                    <Button type='submit'>Done</Button>
+                </div>
+            </Form>
+        </div>
+    );
 }
 
 export default NewProject
