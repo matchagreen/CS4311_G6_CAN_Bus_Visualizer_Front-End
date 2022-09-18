@@ -2,13 +2,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import React from 'react';
 import './index.css';
-import { Link } from 'react-router-dom';
 
 class NewProject extends React.Component {
     state = {
         projectName: '',
         baudRate: 9600,
-        userInitials: '',
+        analystInitials: '',
     }
 
     render() {
@@ -25,6 +24,16 @@ class NewProject extends React.Component {
                                     name='projectName'
                                     value={this.state.projectName}
                                     onChange={e => this.setState({projectName: e.target.value})}
+                                    placeholder='PBJ'
+                                />
+                            </Form.Group>
+                            <Form.Group className='mb-3' controlId='formGroupText'>
+                                <Form.Label>Analyst initials</Form.Label>
+                                <Form.Control
+                                    type='text'
+                                    name='analystInitials'
+                                    value={this.state.analystInitials}
+                                    onChange={e => this.setState({analystInitials: e.target.value})}
                                     placeholder='PBJ'
                                 />
                             </Form.Group>
