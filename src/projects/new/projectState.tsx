@@ -1,4 +1,4 @@
-interface projectState {
+interface ProjectState {
     name: string,
     baud_rate: number,
     initials: string,
@@ -6,4 +6,4 @@ interface projectState {
     blacklist_file?: File,
 }
 
-export default projectState
+export default ProjectState

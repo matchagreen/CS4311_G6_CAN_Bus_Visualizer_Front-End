@@ -1,9 +1,9 @@
 import Form from 'react-bootstrap/Form'
-import projectState from './projectState'
+import ProjectState from './projectState'
 
 interface stateProps {
-    state: projectState
-    setState: React.Dispatch<React.SetStateAction<projectState>>
+    state: ProjectState
+    setState: React.Dispatch<React.SetStateAction<ProjectState>>
 }
 
 function NewProjectForm({state, setState}: stateProps) {
