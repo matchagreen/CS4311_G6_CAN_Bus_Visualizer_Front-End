@@ -31,9 +31,9 @@ function NewProject() {
             <h1 className='new-project-title'>New Project</h1>
             <NewProjectForm state={state} setState={setState}/>
             <div className='new-project-buttons'>
-                <Button onClick={onCancel}>Cancel</Button>
+                <Button onClick={onCancel} className='new-project-button-cancel'>Back</Button>
                 <div className='space'></div>
-                <Button type='submit' onClick={onSubmit}>Done</Button>
+                <Button type='submit' className='new-project-button-submit' onClick={onSubmit}>Done</Button>
             </div>
         </div>
     )
