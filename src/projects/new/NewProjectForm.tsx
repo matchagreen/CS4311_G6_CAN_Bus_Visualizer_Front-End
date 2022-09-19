@@ -33,11 +33,23 @@ function NewProjectForm({state, setState}: stateProps) {
                     </Form.Group>
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>DBC file</Form.Label>
-                        <Form.Control type="file" />
+                        <Form.Control
+                            type="file"
+                            onChange={(e) => {
+                                let target = (e.target as HTMLInputElement)
+                                setState({...state, dbc_file: target.files![0]})
+                            }}
+                        />
                     </Form.Group>
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>Blacklist</Form.Label>
-                        <Form.Control type="file" />
+                        <Form.Control
+                            type="file"
+                            onChange={(e) => {
+                                let target = (e.target as HTMLInputElement)
+                                setState({...state, blacklist_file: target.files![0]})
+                            }}
+                        />
                     </Form.Group>
                 </div>
             </Form>

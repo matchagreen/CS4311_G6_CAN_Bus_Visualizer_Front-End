@@ -2,15 +2,16 @@ import Button from 'react-bootstrap/Button'
 import {useNavigate} from 'react-router-dom'
 import {useState} from 'react'
 import NewProjectForm from './NewProjectForm'
+import projectState from './projectState'
 import './index.css';
 
 function NewProject() {
-    const [state, setState] = useState({
+    const [state, setState] = useState<projectState>({
         name: '',
         baud_rate: 9600,
         initials: '',
-        dbc_file: '',
-        blacklist_file: '',
+        dbc_file: undefined,
+        blacklist_file: undefined,
     })
 
     let navigate = useNavigate();
