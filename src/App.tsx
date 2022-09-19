@@ -1,10 +1,11 @@
 import './App.css';
 import './entrypoint/index';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Intro from './entrypoint/index'
 import Projects from './projects/index';
-import NewProject from './projects/new';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PageNotFound from './pageNotFound/index';
+
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Intro/>}/>
           <Route path='projects' element={<Projects/>}/>
-          <Route path='projects/new' element={<NewProject/>}/>
+          <Route path="*" element={<PageNotFound/>} />
+          
         </Routes>
       </div>
     </Router>
