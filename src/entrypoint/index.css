@@ -15,9 +15,14 @@ div.task-buttons {
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color:grey !important;
+    background-color:#00c28a  !important;
     color: white !important;
-    border-color: grey !important;
+    border-color: #00c28a !important;
+    padding: 20px;
+    font-size: 30px;
+    margin: 4px 2px;
+    width:30%
+    
 }
 
 div.task-buttons .space {
