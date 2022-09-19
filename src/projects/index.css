@@ -1,0 +1,48 @@
+.body {
+    margin: 30px;
+  
+}
+
+.column {
+    float: left;
+}
+
+.br{
+    height: auto;
+}
+
+.side-bar{
+    margin-top: 100px;
+}
+
+.side-buttons{
+    display: block;
+    width: 150px;
+    height: 50px;
+    background-color: #00ab6c !important;
+    border-color:#00ab6c !important;
+    margin: 15px;
+    
+}
+.project-space{
+    margin: 30px;
+}
+
+.dropdown{
+    background-color: white !important;
+    border-color: transparent !important;
+    color: black !important;
+    font-size: larger !important;
+}
+
+.mock-project{
+    width: 150px;
+    height: 50px;
+    background-color: #00ab6c !important;
+    border-color:#00ab6c !important;
+    margin: 35px;
+}
+
+
+
+
