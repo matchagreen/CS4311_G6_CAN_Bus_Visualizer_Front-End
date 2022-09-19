@@ -1,0 +1,33 @@
+div.task {
+    margin: 0px 40px;
+}
+
+h1.task-title {
+    margin: 100px 0px;
+    text-align: center;
+}
+
+div.task-buttons {
+    margin: 30px 0px;
+    text-align: center;
+    
+    
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color:#00c28a  !important;
+    color: white !important;
+    border-color: #00c28a !important;
+    padding: 20px;
+    font-size: 30px;
+    margin: 4px 2px;
+    width:30%
+    
+}
+
+div.task-buttons .space {
+    width: 30px;
+    height: auto;
+    display: inline-block;
+    
+}
