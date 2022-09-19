@@ -6,9 +6,11 @@ import './index.css';
 
 function NewProject() {
     const [state, setState] = useState({
-        projectName: '',
-        baudRate: 9600,
-        analystInitials: '',
+        name: '',
+        baud_rate: 9600,
+        initials: '',
+        dbc_file: '',
+        blacklist_file: '',
     })
 
     let navigate = useNavigate();

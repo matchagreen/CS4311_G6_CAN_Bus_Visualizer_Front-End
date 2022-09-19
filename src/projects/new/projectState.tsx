@@ -1,7 +1,9 @@
 interface projectState {
-    projectName: string,
-    baudRate: number,
-    analystInitials: string,
+    name: string,
+    baud_rate: number,
+    initials: string,
+    dbc_file: string,
+    blacklist_file: string,
 }
 
 export default projectState

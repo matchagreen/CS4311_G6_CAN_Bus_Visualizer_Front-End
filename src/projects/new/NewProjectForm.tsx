@@ -16,8 +16,8 @@ function NewProjectForm({state, setState}: stateProps) {
                         <Form.Control
                             type='text'
                             name='projectName'
-                            value={state.projectName}
-                            onChange={(e)=>setState({...state, projectName: e.target.value})}
+                            value={state.name}
+                            onChange={(e)=>setState({...state, name: e.target.value})}
                             placeholder='Project name'
                         />
                     </Form.Group>
@@ -26,8 +26,8 @@ function NewProjectForm({state, setState}: stateProps) {
                         <Form.Control
                             type='text'
                             name='analystInitials'
-                            value={state.analystInitials}
-                            onChange={e=>setState({...state, analystInitials: e.target.value})}
+                            value={state.initials}
+                            onChange={e=>setState({...state, initials: e.target.value})}
                             placeholder='PBJ'
                         />
                     </Form.Group>
