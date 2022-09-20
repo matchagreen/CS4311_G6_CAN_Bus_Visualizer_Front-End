@@ -8,7 +8,7 @@ class APIUtil {
     createProject(project: ProjectState) {
         return axios.post(this.url + '/projects', project)
             .then(function(response) {
-                console.log(response.data)
+                console.log(response)
             })
             .catch(function(error) {
                 console.log(error)
