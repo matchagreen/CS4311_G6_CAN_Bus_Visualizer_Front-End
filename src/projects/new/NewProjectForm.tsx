@@ -37,7 +37,7 @@ function NewProjectForm({state, setState}: stateProps) {
                             type="file"
                             onChange={(e) => {
                                 let target = (e.target as HTMLInputElement)
-                                setState({...state, dbc_file: target.files![0]})
+                                setState({...state, dbc_file: target.files![0].name})
                             }}
                         />
                     </Form.Group>
@@ -47,7 +47,7 @@ function NewProjectForm({state, setState}: stateProps) {
                             type="file"
                             onChange={(e) => {
                                 let target = (e.target as HTMLInputElement)
-                                setState({...state, blacklist_file: target.files![0]})
+                                setState({...state, blacklist_file: target.files![0].name})
                             }}
                         />
                     </Form.Group>
