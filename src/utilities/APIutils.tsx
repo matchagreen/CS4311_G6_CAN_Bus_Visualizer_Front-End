@@ -1,16 +1,18 @@
+import ProjectState from "../projects/new/projectState"
+import axios from 'axios'
+
+
 class APIUtil {
     url = 'http://localhost:8000'
 
-    getProjectList() {
-        fetch(this.url + '/projects')
-            .then((response) => response.json)
-            .then((responseJson) => {return responseJson})
-    }
-
-    createProject() {
-        fetch(this.url + '/projects/new', {method: 'POST'})
-            .then((response) => response.json)
-            .then((responseJson) => {return responseJson})
+    createProject(project: ProjectState) {
+        return axios.post(this.url + '/projects', project)
+            .then(function(response) {
+                console.log(response.data)
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
     }
 }
 
