@@ -24,7 +24,6 @@ function NewProject() {
     }
 
     const onSubmit = () => {
-        // TODO: Add call to api and redirect
         api.createProject(state)
     }
 
