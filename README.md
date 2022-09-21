@@ -1,10 +1,10 @@
 # Getting Started with Create React App
 
 
-## Backend Repo
+## Backend Repository
 
 You can see the back end repository by clicking the following link 
-[Back-end](https://github.com/iarivas/CS4311_G6_CAN_Bus_Visualizer_Back-End).
+[Backend](https://github.com/iarivas/CS4311_G6_CAN_Bus_Visualizer_Back-End).
 
 
 ## Cloning
