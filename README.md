@@ -1,5 +1,12 @@
 # Getting Started with Create React App
 
+
+## Back end Repo
+
+You can see the back end repository by clicking the following link 
+[Back-end](https://github.com/iarivas/CS4311_G6_CAN_Bus_Visualizer_Back-End).
+
+
 ## Cloning
 
 When cloning this repository, run the following command:
@@ -54,3 +61,19 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+# Contributors and Contact Info
+Thanks to the following people who have contributed to this project:
+* [@Jfrausto10](https://github.com/jfrausto10) 
+* [@mgmolina3](https://github.com/mgmolina3) 
+* [@christiancordova107](https://github.com/christiancordova107) 
+* [@LazyLinoone](https://github.com/LazyLinoone) 
+* [@alanperezse](https://github.com/alanperezse) 
+* [@ianrigsbee54](https://github.com/ianrigsbee54)
+* [@diana-areisy](https://github.com/diana-areisy)
+* [@garciagitmauricio](https://github.com/garciagitmauricio)
+* [@iarivas](https://github.com/iarivas)
+
+## Contact
+If you want to contact me you can reach me at <mgmolina3@miners.utep.edu>.
