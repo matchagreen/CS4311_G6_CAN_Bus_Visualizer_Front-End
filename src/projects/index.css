@@ -3,46 +3,56 @@
   
 }
 
-.column {
-    float: left;
-}
-
 .br{
     height: auto;
 }
 
 .side-bar{
-    margin-top: 100px;
+    margin-top: 20px;
 }
 
 .side-buttons{
     display: block;
     width: 150px;
     height: 50px;
-    background-color: #00ab6c !important;
-    border-color:#00ab6c !important;
-    margin: 15px;
-    
-}
-.project-space{
-    margin: 30px;
+    background-color: #00c28a !important ;
+    border-color:#00c28a !important; 
 }
 
-.dropdown{
-    background-color: white !important;
-    border-color: transparent !important;
-    color: black !important;
-    font-size: larger !important;
+.project-space{
+    margin: 30px;
+    display: flexbox;
+}
+
+
+.container{
+    padding: 20px;
+    margin: 20px;
+}
+
+.project-options{
+    margin: 5px;
+    position: center;
+    width: 100px;
 }
 
 .mock-project{
-    width: 150px;
+    margin: 20px;
+}
+
+.inside-mock{
+    width: 100px;;
     height: 50px;
-    background-color: #00ab6c !important;
-    border-color:#00ab6c !important;
-    margin: 35px;
+    background-color: #2900C2  !important;
+    border-color:#2900C2 !important;
+    
 }
 
 
+.link{
+    color: white;
+    text-decoration: none;
+    position: center;
+}
 
 
