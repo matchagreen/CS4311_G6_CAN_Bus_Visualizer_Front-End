@@ -7,40 +7,36 @@ import Col from 'react-bootstrap/Col';
 import {useNavigate} from "react-router-dom";
 import { ButtonGroup } from 'react-bootstrap';
 
-function Projects() {
 
+function Archive() {
   let navigate = useNavigate();
 
     const onNewProject = ()=> {
-        const  path = './new'
+        const  path = './../new'
         navigate(path)
     }
 
-    const onArchives = ()=> {
-      const  path = './archives'
-      navigate(path)
+    const onProjects = ()=> {
+        const  path = './..'
+        navigate(path)
     }
-
     const on404 = ()=> {
       const  path = './pageNotFound'
       navigate(path)
     }
-  
   return (
-    <>
     <Container className='container'>
       {/* Stack the columns on mobile by making one full-width and the other half-width */}
       <header className='header'>
-        <Dropdown >
-          <Dropdown.Toggle className='dropdown' variant="success" id="dropdown-basic">
-            Projects
-          </Dropdown.Toggle>
+      <Dropdown>
+        <Dropdown.Toggle className='dropdown' variant="success" id="dropdown-basic">
+          Archives
+       </Dropdown.Toggle>
 
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={onArchives}>Archives</Dropdown.Item>
-          </Dropdown.Menu>
-
-        </Dropdown>
+        <Dropdown.Menu>
+          <Dropdown.Item className='dropdown2' onClick={onProjects}>Projects</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
       </header>
 
       <Row>
@@ -57,7 +53,7 @@ function Projects() {
 
             <Dropdown as={ButtonGroup} className='mock-project' >
             
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 1</Button>
+              <Button onClick = {on404} className='inside-mock' variant="success">Archive 1</Button>
 
               <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
 
@@ -70,7 +66,7 @@ function Projects() {
 
             <Dropdown as={ButtonGroup} className='mock-project'>
             
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 2</Button>
+              <Button onClick = {on404} className='inside-mock' variant="success">Archive 2</Button>
 
               <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
 
@@ -83,7 +79,7 @@ function Projects() {
 
             <Dropdown as={ButtonGroup} className='mock-project'>
             
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 3</Button>
+              <Button onClick = {on404} className='inside-mock' variant="success">Archive 3</Button>
 
               <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
 
@@ -96,7 +92,7 @@ function Projects() {
 
             <Dropdown as={ButtonGroup} className='mock-project'>
             
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 4</Button>
+              <Button onClick = {on404} className='inside-mock' variant="success">Archive 4</Button>
 
               <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
 
@@ -109,7 +105,7 @@ function Projects() {
 
             <Dropdown as={ButtonGroup} className='mock-project'>
             
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 5</Button>
+              <Button onClick = {on404} className='inside-mock' variant="success">Archive 5</Button>
 
               <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
 
@@ -120,12 +116,10 @@ function Projects() {
                 </Dropdown.Menu>
             </Dropdown>
 
-        </Col>
+          </Col>
       </Row>
     </Container>
-    </>
   );
 }
 
-
-export default Projects;
+export default Archive;

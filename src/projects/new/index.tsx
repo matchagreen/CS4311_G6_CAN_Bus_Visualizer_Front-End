@@ -3,15 +3,17 @@ import {useNavigate} from 'react-router-dom'
 import {useState} from 'react'
 import NewProjectForm from './NewProjectForm'
 import ProjectState from './projectState'
+import APIUtil from '../../utilities/APIutils'
 import './index.css';
 
 function NewProject() {
+    const api = new APIUtil()
     const [state, setState] = useState<ProjectState>({
         name: '',
         baud_rate: 9600,
         initials: '',
-        dbc_file: undefined,
-        blacklist_file: undefined,
+        dbc_file: null,
+        blacklist_file: null,
     })
 
     let navigate = useNavigate();
@@ -22,8 +24,7 @@ function NewProject() {
     }
 
     const onSubmit = () => {
-        // TODO: Add call to api and redirect
-        console.log(state)
+        api.createProject(state)
     }
 
     return (
