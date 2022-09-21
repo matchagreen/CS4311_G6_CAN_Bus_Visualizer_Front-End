@@ -8,6 +8,10 @@ h1.not-found {
     
 }
 
+div.errors{
+    color: whitesmoke;
+}
+
 p.error-reason{
     margin: 0px 40px;
     font-size: 200%;

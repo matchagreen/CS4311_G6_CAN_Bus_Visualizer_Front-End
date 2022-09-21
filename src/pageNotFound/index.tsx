@@ -22,7 +22,7 @@ const PageNotFound= () =>{
     }
 
     return (
-        <div>
+        <div className='errors'>
             <h1 className='oops'>Oops!</h1>
             <h1 className='not-found'>Page Not Found</h1>
             <div className='space'></div>
