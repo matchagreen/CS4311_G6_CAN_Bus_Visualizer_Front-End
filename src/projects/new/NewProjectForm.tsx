@@ -13,21 +13,19 @@ interface stateProps {
 function NewProjectForm({state, setState}: stateProps) {
     let navigate = useNavigate();
     const api = new APIUtil()
-    let [baudRate, setBaudRate] = useState('');
 
     const onCancel = ()=> {
-        const  path = '/projects'
+        const path = '/projects'
         navigate(path)
     }
 
     const onSubmit = () => {
-        setState({...state, baud_rate: parseInt(baudRate) | state.baud_rate})
         api.createProject(state)
     }
 
     return (
         <div className='new-project-form'>
-            <Form>
+            <Form onSubmit={onSubmit}>
                 <div className='new-project-fields'>
                     <Form.Group className='mb-3' controlId='formGroupText'>
                         <Form.Label>Project name</Form.Label>
@@ -55,11 +53,11 @@ function NewProjectForm({state, setState}: stateProps) {
                         <Form.Label>Baud rate</Form.Label>
                         <Form.Control
                             type='number'
-                            name='analystInitials'
-                            value={baudRate}
+                            name='baudRate'
                             placeholder='9600'
-                            onChange={e=>setBaudRate(e.target.value)}
+                            onChange={e=>setState({...state, baud_rate: parseInt(e.target.value) || state.baud_rate})}
                             required
+                            min='1'
                         />
                     </Form.Group>
                     <Form.Group controlId="formFile" className="mb-3">
@@ -86,7 +84,7 @@ function NewProjectForm({state, setState}: stateProps) {
                 <div className='new-project-buttons'>
                     <Button onClick={onCancel} className='new-project-button-cancel'>Back</Button>
                         <div className='space'></div>
-                    <Button type='submit' className='new-project-button-submit' onClick={onSubmit}>Done</Button>
+                    <Button type='submit' className='new-project-button-submit'>Done</Button>
                 </div>
             </Form>
         </div>
