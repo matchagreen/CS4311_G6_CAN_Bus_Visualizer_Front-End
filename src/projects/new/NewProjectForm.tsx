@@ -3,7 +3,6 @@ import {useNavigate} from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import ProjectState from './projectState'
 import APIUtil from '../../utilities/APIutils'
-import { useState } from 'react'
 
 interface stateProps {
     state: ProjectState
@@ -11,7 +10,7 @@ interface stateProps {
 }
 
 function NewProjectForm({state, setState}: stateProps) {
-    let navigate = useNavigate();
+    let navigate = useNavigate()
     const api = new APIUtil()
 
     const onCancel = ()=> {
@@ -19,13 +18,14 @@ function NewProjectForm({state, setState}: stateProps) {
         navigate(path)
     }
 
-    const onSubmit = () => {
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         api.createProject(state)
     }
 
     return (
         <div className='new-project-form'>
-            <Form onSubmit={onSubmit}>
+            <Form onSubmit={e=>onSubmit(e)}>
                 <div className='new-project-fields'>
                     <Form.Group className='mb-3' controlId='formGroupText'>
                         <Form.Label>Project name</Form.Label>
