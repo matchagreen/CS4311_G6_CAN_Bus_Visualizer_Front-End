@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import ProjectState from './projectState'
 import APIUtil from '../../utilities/APIutils'
+import { useState } from 'react'
 
 interface stateProps {
     state: ProjectState
@@ -12,6 +13,7 @@ interface stateProps {
 function NewProjectForm({state, setState}: stateProps) {
     let navigate = useNavigate();
     const api = new APIUtil()
+    let [baudRate, setBaudRate] = useState('');
 
     const onCancel = ()=> {
         const  path = '/projects'
@@ -19,6 +21,7 @@ function NewProjectForm({state, setState}: stateProps) {
     }
 
     const onSubmit = () => {
+        setState({...state, baud_rate: parseInt(baudRate) | state.baud_rate})
         api.createProject(state)
     }
 
@@ -45,6 +48,17 @@ function NewProjectForm({state, setState}: stateProps) {
                             value={state.initials}
                             onChange={e=>setState({...state, initials: e.target.value})}
                             placeholder='PBJ'
+                            required
+                        />
+                    </Form.Group>
+                    <Form.Group className='mb-3'>
+                        <Form.Label>Baud rate</Form.Label>
+                        <Form.Control
+                            type='number'
+                            name='analystInitials'
+                            value={baudRate}
+                            placeholder='9600'
+                            onChange={e=>setBaudRate(e.target.value)}
                             required
                         />
                     </Form.Group>
