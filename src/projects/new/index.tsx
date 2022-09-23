@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import NewProjectForm from './NewProjectForm'
-import ProjectState from './projectState'
+import ProjectState from './ProjectState'
 import './index.css';
 
 function NewProject() {
