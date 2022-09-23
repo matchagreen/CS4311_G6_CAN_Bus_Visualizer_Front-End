@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button'
 import {useNavigate} from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
-import ProjectState from './projectState'
+import ProjectState from './ProjectState'
 import APIUtil from '../../utilities/APIutils'
 
 interface stateProps {
