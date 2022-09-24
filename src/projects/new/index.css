@@ -12,6 +12,7 @@ div.new-project-fields .mb-3 {
 div.new-project-fields .mb-3 .form-control{
     background-color: rgba(0, 0, 0, 0);
     border-color: rgba(255, 255, 255, 0.2);
+    color: #edeff3;
 }
 
 div.new-project-buttons .space {
