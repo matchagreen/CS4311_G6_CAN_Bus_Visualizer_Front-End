@@ -14,7 +14,8 @@ function NewProject() {
 
     return (
         <div className='new-project'>
-            <h1 className='new-project-title'>New Project</h1>
+            <h1 className='new-project-title'>Create Project</h1>
+            <br/>
             <NewProjectForm state={state} setState={setState}/>
         </div>
     )
