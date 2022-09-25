@@ -15,7 +15,7 @@ p.error-reason{
 
 p.error404{
     margin: 0px 40px;
-    color: red;
+    color: rgb(183,90,91)
 }
 
 p.links{
@@ -43,5 +43,5 @@ li.link{
 }
 
 li.link:hover{
-     color:blue;
+     color: rgb(28,75,83);
 }
