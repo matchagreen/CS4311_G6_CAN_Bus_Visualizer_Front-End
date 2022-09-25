@@ -20,6 +20,7 @@ p.error404{
 
 p.links{
     margin: 0px 40px;
+    
 }
 
 img{
@@ -35,6 +36,12 @@ div.space {
     
 }
 
-a.link{
+li.link{
     margin: 0px 40px;
+    color: rgb(214, 206, 206);
+    
+}
+
+li.link:hover{
+     color:blue;
 }
