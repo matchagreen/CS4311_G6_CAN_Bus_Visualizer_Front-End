@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import ProjectState from './ProjectState'
 import APIUtil from '../../utilities/APIutils'
+import { read } from 'fs'
 
 interface stateProps {
     state: ProjectState
@@ -66,7 +67,9 @@ function NewProjectForm({state, setState}: stateProps) {
                             type="file"
                             onChange={(e) => {
                                 let target = (e.target as HTMLInputElement)
-                                setState({...state, dbc_file: target.files![0].name})
+                                const reader = new FileReader()
+                                reader.readAsText(target.files![0])
+                                reader.onload = () => setState({...state, dbc_file: reader.result as string})
                             }}
                         />
                     </Form.Group>
@@ -76,7 +79,9 @@ function NewProjectForm({state, setState}: stateProps) {
                             type="file"
                             onChange={(e) => {
                                 let target = (e.target as HTMLInputElement)
-                                setState({...state, blacklist_file: target.files![0].name})
+                                const reader = new FileReader()
+                                reader.readAsText(target.files![0])
+                                reader.onload = () => setState({...state, blacklist_file: reader.result as string})
                             }}
                         />
                     </Form.Group>
