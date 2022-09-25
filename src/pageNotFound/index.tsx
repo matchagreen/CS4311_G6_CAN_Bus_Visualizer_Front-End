@@ -31,12 +31,12 @@ const PageNotFound= () =>{
             <p className='error404'>Error code: 404</p>
             <p className='links'> Here are some helpfull links instead:</p>
             
-            <a className='link' onClick={onProjects}>Projects</a>
-            <br />
-            <a className='link' onClick={onSync}>Sync</a>
-            <br />
-            <a className='link' onClick={onCANBusVisualizer}>CAN Bus Visualizer</a>
-            <br />
+            <ul>
+            <li className='link' onClick={onProjects}> Projects </li>
+            <li className='link' onClick={onSync}> Sync </li>
+            <li className='link' onClick={onCANBusVisualizer}> CAN Bus Visualizer </li>
+            </ul>
+
             <div className='space'></div>
             <img src={dinoGif} alt="dino-gif" />
             
