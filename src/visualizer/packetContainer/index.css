@@ -7,10 +7,21 @@
 }
 
 .packet-table {
-    width: 450px;
     border-width: 1px;
     border-style: solid;
     border-color: rgba(255, 255, 255, 0.2);
+}
+
+.packet-time {
+    width: 120px;
+}
+
+.packet-id {
+    width: 85px;
+}
+
+.packet-type {
+    width: 50px;
 }
 
 .packet-table table * {

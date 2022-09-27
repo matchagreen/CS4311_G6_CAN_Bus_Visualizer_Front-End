@@ -43,10 +43,10 @@ function PacketList() {
                 <Table variant='dark' hover size='sm'>
                     <thead>
                         <tr>
-                            <th>Time</th>
-                            <th>Id</th>
-                            <th>Type</th>
-                            <th>Data</th>
+                            <th className='packet-time'>Time</th>
+                            <th className='packet-id'>Id</th>
+                            <th className='packet-type'>Type</th>
+                            <th className='packet-data'>Data</th>
                         </tr>
                     </thead>
                     <tbody>
