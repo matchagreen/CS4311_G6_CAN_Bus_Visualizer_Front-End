@@ -1,5 +1,12 @@
+
 div.task {
-    margin: 0px 40px;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    height:100vh;
+    width:100vw;
 }
 
 h1.task-title {
@@ -15,9 +22,9 @@ div.task-buttons {
 }
 
 .task-buttons .btn-primary, .task-buttons .btn-primary:hover, .task-buttons.btn-primary:active, .task-buttons .btn-primary:visited {
-    background-color:#00c28a  !important;
+    background-color:#1c7e92  !important;
     color: white !important;
-    border-color: #00c28a !important;
+    border-color: #1c7e92 !important;
     padding: 20px;
     font-size: 30px;
     margin: 4px 2px;

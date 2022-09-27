@@ -4,10 +4,11 @@ import "font-awesome/css/font-awesome.min.css";
 
 import {useNavigate} from "react-router-dom";
 import './index.css';
+import tankBluePrint from '../type/tankImage.jpg';
 
 
 
-function NewProject() {
+function Intro() {
     
 
     let navigate = useNavigate();
@@ -28,7 +29,13 @@ function NewProject() {
     }
 
     return (
-        <div className='task'>
+        <div className='task' style={{
+            backgroundImage: `url(${tankBluePrint})`,
+            backgroundRepeat: `no-repeat`,
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+        }} >
+
             <h1 className='task-title'>CAN Bus Visualizer</h1>
             
             <div className='task-buttons'>
@@ -54,11 +61,11 @@ function NewProject() {
                 <i style={{ paddingRight: "10px" }}
                 className="fa fa-car"
                 aria-hidden="true"></i>
-                CAN Bus Visualizer
+                CAN Bus Manager
                 </Button>
             </div>
         </div>
     )
 }
 
-export default NewProject
+export default Intro
