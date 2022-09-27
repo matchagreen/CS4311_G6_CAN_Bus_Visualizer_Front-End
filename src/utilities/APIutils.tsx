@@ -94,7 +94,7 @@ class APIUtil {
 11T082554663;1;c010305;ccfffaffff20440a
 11T082554663;1;c00000b;fcffff7dffffffff
 11T082554664;1;cf00400;f4dede3028fff0ff
-11T082554664;1;18f0010b;0000c0ffff01fff3`
+11T082554664;1;18f0010b;0000c0ffff01fff3`.toUpperCase()
 
         let packetData = sampleData.split('\n')
         let parsedPackets = packetData.map((packet) => {
