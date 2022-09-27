@@ -11,8 +11,15 @@ function PacketList() {
     let [hasMore, setHasMore] = useState(true)
     const fetchData = () => {
         const newData = api.getPackets(page)
-        const newPackets = newData.map((val) => {
-            return <li key={val}>{val}</li>
+        const newPackets = newData.map((packet) => {
+            return (
+                <tr>
+                    <td>{packet.timestamp}</td>
+                    <td>{packet.id}</td>
+                    <td>{packet.type}</td>
+                    <td>{packet.data}</td>
+                </tr>
+            )
         })
 
         if (newData.length > 0) {
@@ -31,7 +38,7 @@ function PacketList() {
                 next={fetchData}
                 hasMore={hasMore}
                 loader={<p>Loading...</p>}
-                endMessage={<p>End</p>}
+                endMessage={<p>No more data to show</p>}
             >
                 <Table variant='dark' hover size='sm'>
                     <thead>
@@ -43,80 +50,8 @@ function PacketList() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
-                        <tr>
-                            <td>11T082554602</td>
-                            <td>1</td>
-                            <td>cf00203</td>
-                            <td>cd402800043828ff</td>
-                        </tr>
+                        {data}
                     </tbody>
-                    {data}
                 </Table>
             </InfiniteScroll>
         </div>
