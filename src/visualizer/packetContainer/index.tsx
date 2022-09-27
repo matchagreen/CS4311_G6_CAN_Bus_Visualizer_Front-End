@@ -7,12 +7,13 @@ import './index.css'
 function PacketContainer() {
     return (
         <div className='packet-container rounded'>
-            <h3>Packets</h3>
-            <Button className='rounded-pill'>
-                Fetch &nbsp;
-                <ArrowRepeat/>
-            </Button>
-            <br />
+            <div className='packet-container-inner'>
+                <h3>Packets</h3>
+                <Button className='rounded-pill'>
+                    Fetch &nbsp;
+                    <ArrowRepeat/>
+                </Button>
+            </div>
             <br />
             <PacketList></PacketList>
         </div>

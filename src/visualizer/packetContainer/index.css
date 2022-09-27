@@ -33,6 +33,10 @@
     color: #edeff3bd;
 }
 
-.packet-container-inner {
+.packet-container-inner * {
     display: inline;
+}
+
+.packet-container-inner button {
+    float: right;
 }
