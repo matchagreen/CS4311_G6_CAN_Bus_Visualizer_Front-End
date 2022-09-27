@@ -5,11 +5,11 @@ import './index.css';
 
 function NewProject() {
     const [state, setState] = useState<ProjectState>({
-        name: '',
-        baud_rate: 9600,
+        eventName: '',
+        baudRate: 9600,
         initials: '',
-        dbc_file: null,
-        blacklist_file: null,
+        dbcFile: null,
+        blacklistFile: null,
     })
 
     return (
