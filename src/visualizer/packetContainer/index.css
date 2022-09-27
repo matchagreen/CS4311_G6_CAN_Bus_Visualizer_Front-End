@@ -24,6 +24,10 @@
     width: 50px;
 }
 
+.packet-data {
+    width: 170px;
+}
+
 .packet-table table * {
     background-color: #17161b;
     color: #edeff3bd;
