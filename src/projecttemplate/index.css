@@ -92,7 +92,7 @@ body {
   border-left: 0.32em solid transparent;
 }
 
-.dropdown {
+.drop-down {
   position: absolute;
   right: 0;
   left: auto;
@@ -108,12 +108,12 @@ body {
   display: none;
 }
 
-.dropdown.show {
+.drop-down.show {
   display: block;
   
 }
 
-.dropdown .dropdown-submenu {
+.drop-down .drop-down-submenu {
   position: absolute;
   left: 100%;
   top: -7px;
