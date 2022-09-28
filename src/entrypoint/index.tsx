@@ -34,26 +34,21 @@ function Intro() {
             </div>
             <div className='task-buttons'>
                 <Button onClick={onProjects}>
-                <i style={{ paddingRight: "10px" }}
-                className="fa fa-folder"
-                aria-hidden="true"></i>
+                <i className="fa fa-folder" aria-hidden="true"></i>
                 Projects
                 </Button>
 
                 <div className='space'></div>
 
                 <Button onClick={onSync}>
-                <i style={{ paddingRight: "10px" }}
-                className="fa fa-superpowers"
-                aria-hidden="true"></i>
+                <i className="fa fa-superpowers" aria-hidden="true"></i>
                 Sync
                 </Button>
 
                 <div className='space'></div>
+                
                 <Button onClick={onCANBusVisualizer}>
-                <i style={{ paddingRight: "10px" }}
-                className="fa fa-car"
-                aria-hidden="true"></i>
+                <i className="fa fa-car" aria-hidden="true"></i>
                 CAN Bus Manager
                 </Button>
             </div>

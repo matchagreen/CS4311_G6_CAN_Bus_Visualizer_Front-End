@@ -38,7 +38,7 @@
 
 .task-buttons .btn-primary, .task-buttons .btn-primary:hover, .task-buttons.btn-primary:active, .task-buttons .btn-primary:visited {
     position: relative;
-    background-color:#1c7e92  !important;    /*1c7e92*/
+    background-color:#1c7e92  !important;    
     color: white !important;
     border-color: #1c7e92 !important;
     padding: 20px;
@@ -57,3 +57,13 @@
     display: inline-block;
     
 }
+
+.fa.fa-folder, .fa.fa-superpowers, .fa.fa-car{
+    padding-right: 10px;
+}
+
+
+
+
+
+
