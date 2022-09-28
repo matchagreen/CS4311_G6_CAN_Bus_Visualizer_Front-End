@@ -41,10 +41,7 @@
 }
 
 .inside-mock{
-    width: 100px;;
-    height: 50px;
-    background-color: #2900C2  !important;
-    border-color:#2900C2 !important;
+    background-color: orange;
     
 }
 

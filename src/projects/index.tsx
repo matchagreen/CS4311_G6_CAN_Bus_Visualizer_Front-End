@@ -1,11 +1,8 @@
 import './index.css';
-import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import APIUtil from '../utilities/APIutils';
 import {useNavigate} from "react-router-dom";
-import { ButtonGroup } from 'react-bootstrap';
+import ProjectCardState from './ProjectCardState';
+import { Button, ButtonGroup, Col, Container, Dropdown, Row } from 'react-bootstrap';
 
 function Projects() {
 
@@ -21,13 +18,27 @@ function Projects() {
       navigate(path)
     }
 
-    const on404 = ()=> {
-      const  path = './pageNotFound'
-      navigate(path)
-    }
+    const api = new APIUtil()
+
+    function getProjectCards(){
+      let projects = api.getProjects()
+        return projects.map((val: ProjectCardState) => {
+          return  <Dropdown as={ButtonGroup} className='mock-project' >
+          <Button  className='inside-mock' variant="success">{val.name}</Button>
+          <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
+
+          <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            </Dropdown.Menu>
+        </Dropdown>
+        })
+      }
+
+    let projectCards = getProjectCards()
   
   return (
-    <>
     <Container className='container'>
       {/* Stack the columns on mobile by making one full-width and the other half-width */}
       <header className='header'>
@@ -42,88 +53,23 @@ function Projects() {
 
         </Dropdown>
       </header>
-
       <Row>
 
-        <Col className='col' xs={4} md={2}>
-          <div className='side-bar' > 
-            <Button className = "side-buttons" onClick={onNewProject}>New</Button>
-            <br></br>
-            <Button className = "side-buttons">Import</Button>
-          </div>
-        </Col>
-
-        <Col className='col' xs={14} md={10}>
-
-            <Dropdown as={ButtonGroup} className='mock-project' >
-            
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 1</Button>
-
-              <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown as={ButtonGroup} className='mock-project'>
-            
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 2</Button>
-
-              <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown as={ButtonGroup} className='mock-project'>
-            
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 3</Button>
-
-              <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown as={ButtonGroup} className='mock-project'>
-            
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 4</Button>
-
-              <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown as={ButtonGroup} className='mock-project'>
-            
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 5</Button>
-
-              <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-
-        </Col>
-      </Row>
+          <Col className='col' xs={4} md={2}>
+            <div className='side-bar' > 
+              <Button className = "side-buttons" onClick={onNewProject}>New</Button>
+              <br></br>
+              <Button className = "side-buttons">
+  
+              </Button>
+            </div>
+          </Col>
+          <Col className='col' xs={14} md={10}>
+      
+            {projectCards}
+          </Col>
+        </Row>
     </Container>
-    </>
   );
 }
 
