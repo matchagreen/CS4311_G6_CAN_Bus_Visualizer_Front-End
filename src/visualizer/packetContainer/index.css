@@ -12,9 +12,11 @@
     flex: 1 0 auto;
     overflow-x: scroll;
     height: 500px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.packet-table th {
+    position: sticky;
+    top: 0;
 }
 
 .packet-time {
