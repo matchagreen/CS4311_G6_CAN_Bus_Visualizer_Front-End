@@ -14,7 +14,6 @@ function PacketContainer() {
                     <ArrowRepeat/>
                 </Button>
             </div>
-            <br />
             <PacketList></PacketList>
         </div>
     )

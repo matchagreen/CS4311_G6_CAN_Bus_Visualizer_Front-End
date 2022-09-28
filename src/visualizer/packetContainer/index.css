@@ -4,7 +4,7 @@
     border-style: solid;
     border-width: 1px;
     border-color: rgba(255, 255, 255, 0.2);
-    padding: 20px 20px;
+    padding: 15px;
     width: 480px;
 }
 
@@ -36,7 +36,11 @@
     color: #edeff3bd;
 }
 
-.packet-container-inner * {
+.packet-container-inner {
+    padding: 0px 0px 15px 0px;
+}
+
+.packet-container-inner h3, .packet-container-inner btn {
     display: inline;
 }
 
