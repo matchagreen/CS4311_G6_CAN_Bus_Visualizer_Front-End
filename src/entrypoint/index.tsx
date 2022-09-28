@@ -4,7 +4,6 @@ import "font-awesome/css/font-awesome.min.css";
 
 import {useNavigate} from "react-router-dom";
 import './index.css';
-import tankBluePrint from '../type/tankImage.jpg';
 
 
 
@@ -29,17 +28,11 @@ function Intro() {
     }
 
     return (
-        <div className='task' style={{
-            backgroundImage: `url(${tankBluePrint})`,
-            backgroundRepeat: `no-repeat`,
-            backgroundSize: "cover",
-            backgroundPosition: "center"
-        }} >
-
-            <h1 className='task-title'>CAN Bus Visualizer</h1>
-            
+        <div className='page'>
+            <div className='task-title'>
+                <h1>CAN Bus Visualizer</h1>
+            </div>
             <div className='task-buttons'>
-
                 <Button onClick={onProjects}>
                 <i style={{ paddingRight: "10px" }}
                 className="fa fa-folder"
