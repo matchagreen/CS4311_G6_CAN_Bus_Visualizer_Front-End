@@ -1,5 +1,5 @@
 import { useState } from "react"
-import InfiniteScroll from "react-infinite-scroll-component"
+import InfiniteScroll from 'react-infinite-scroller'
 import { Table } from "react-bootstrap"
 import APIUtil from "../../utilities/APIutils"
 
@@ -34,11 +34,11 @@ function PacketList() {
     return (
         <div className='packet-table rounded'>
             <InfiniteScroll
-                dataLength={data.length}
-                next={fetchData}
+                pageStart={0}
+                loadMore={fetchData}
                 hasMore={hasMore}
                 loader={<p>Loading...</p>}
-                endMessage={<p>No more data to show</p>}
+                useWindow={false}
             >
                 <Table variant='dark' hover size='sm'>
                     <thead>
@@ -49,7 +49,8 @@ function PacketList() {
                             <th className='packet-data'>Data</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id='test'>
+                        {data}
                     </tbody>
                 </Table>
             </InfiniteScroll>
