@@ -50,7 +50,6 @@ function PacketList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {data}
                     </tbody>
                 </Table>
             </InfiniteScroll>

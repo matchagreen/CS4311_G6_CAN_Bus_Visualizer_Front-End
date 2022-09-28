@@ -40,7 +40,7 @@
     padding: 0px 0px 15px 0px;
 }
 
-.packet-container-inner h3, .packet-container-inner btn {
+.packet-container-inner h3, .packet-container-inner * {
     display: inline;
 }
 
