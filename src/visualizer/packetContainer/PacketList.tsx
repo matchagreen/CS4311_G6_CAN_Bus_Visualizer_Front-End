@@ -49,7 +49,7 @@ function PacketList() {
                             <th className='packet-data'>Data</th>
                         </tr>
                     </thead>
-                    <tbody id='test'>
+                    <tbody>
                         {data}
                     </tbody>
                 </Table>
