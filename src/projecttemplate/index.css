@@ -11,7 +11,7 @@ body {
 .projectheader {
   height: 58px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  color: #212529;
+  color: black;
 }
 
 .nav-area {
@@ -21,7 +21,7 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   height: 58px;
-  background-color: black;
+  
 }
 
 .logo {
@@ -129,3 +129,9 @@ body {
     display: block;
   }
 }
+
+.nav-area {
+  display: flex;
+  flex-direction: column;
+}
+
