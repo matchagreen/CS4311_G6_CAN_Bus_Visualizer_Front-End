@@ -107,15 +107,15 @@ class APIUtil {
             }
         })
 
-        if (page == 0) {
+        if (page === 0) {
             return parsedPackets.slice(0, 14)
-        } else if (page == 1) {
+        } else if (page === 1) {
             return parsedPackets.slice(15, 29)
-        } else if (page == 2) {
+        } else if (page === 2) {
             return parsedPackets.slice(30, 44)
-        } else if (page == 3) {
+        } else if (page === 3) {
             return parsedPackets.slice(45, 59)
-        } else if (page == 4) {
+        } else if (page === 4) {
             return parsedPackets.slice(60, 66)
         } else {
             return []
