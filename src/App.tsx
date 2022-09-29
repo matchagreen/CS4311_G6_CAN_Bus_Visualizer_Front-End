@@ -11,9 +11,12 @@ import Visualizer from './visualizer';
 
 
 
+
 function App() {
   return (
+    
     <Router>
+      
       <div className='App'>
         <Routes>
           <Route path='/' element={<Intro/>}/>

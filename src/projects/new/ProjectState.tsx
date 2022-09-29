@@ -1,9 +1,9 @@
 interface ProjectState {
-    name: string,
-    baud_rate: number,
+    eventName: string,
+    baudRate: number,
     initials: string,
-    dbc_file: string | null,
-    blacklist_file: string | null,
+    dbcFile: string | null,
+    blacklistFile: string | null,
 }
 
 export default ProjectState
