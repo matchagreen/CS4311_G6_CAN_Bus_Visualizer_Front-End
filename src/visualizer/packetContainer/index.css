@@ -11,7 +11,7 @@
 .packet-table {
     flex: 1 0 auto;
     overflow-x: scroll;
-    height: 500px;
+    height: 0;
 }
 
 .packet-table th {
