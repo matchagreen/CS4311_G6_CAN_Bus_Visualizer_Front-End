@@ -13,8 +13,9 @@ function PacketContainer() {
                 <h6>Packets</h6>
                 <div className='packet-action-buttons'>
                     <Button className='rounded-pill' size='sm'>
-                        Fetch &nbsp;
                         <ArrowRepeat/>
+                        &nbsp;
+                        Fetch
                     </Button>
                     &nbsp;
                     {isPlaying ? (
