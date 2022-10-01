@@ -29,7 +29,7 @@ function Visualizer() {
                 packetViewSettings={packetViewSettings}
                 setPacketViewSettings={setPacketViewSettings}
             />
-            <h1 className='visualizer-title' onClick={() => setIsShownPacketsModal(true)}>{params.projectId}</h1>
+            <h1 className='visualizer-title'>{params.projectId}</h1>
             <PacketContainer></PacketContainer>
         </div>
     )
