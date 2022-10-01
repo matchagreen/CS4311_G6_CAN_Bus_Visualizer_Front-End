@@ -42,14 +42,13 @@
 
 .inside-mock{
     background-color: orange;
-    
+    border-color: orange;
 }
 
-
-.link{
-    color: white;
-    text-decoration: none;
-    position: center;
+.projectHeader3{
+    margin: 20px;
 }
 
-
+.tabColumn{
+    margin-top: 13px;
+}
