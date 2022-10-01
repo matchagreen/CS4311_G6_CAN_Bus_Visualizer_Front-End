@@ -48,6 +48,10 @@
     display: inline;
 }
 
-.packet-container-inner button {
+.packet-action-buttons {
     float: right;
+}
+
+.packet-action-buttons button{
+    width: 80px;
 }
