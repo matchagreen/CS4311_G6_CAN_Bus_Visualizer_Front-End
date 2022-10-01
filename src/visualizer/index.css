@@ -1,4 +1,6 @@
 div.visualizer {
+    display: flex;
+    flex-direction: column;
     padding: 30px;
     display: flex;
     flex-flow: column;
@@ -10,6 +12,21 @@ div.packet-container {
 }
 
 h1.visualizer-title {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
     padding: 20px;
+}
+
+div.visualizer-content {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+div.packet-container-content {
+    display: flex;
+    flex: 0 0 auto;
+}
+
+div.node-map-container-content {
+    display: flex;
+    flex: 1 0 auto;
 }
