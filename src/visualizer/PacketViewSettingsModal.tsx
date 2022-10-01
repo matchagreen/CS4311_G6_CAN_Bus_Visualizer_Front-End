@@ -1,23 +1,49 @@
 import { InputGroup, Row, Col, Modal, Form, Button} from 'react-bootstrap'
-import {PacketSortOptions as Sort} from '../common/Constants'
+import { PacketSortOptions as Sort} from '../common/Constants'
+import { useState } from 'react'
+import PacketViewSettingsState from './PacketViewSettingsState'
 
-function PacketViewSettingsModal({onHide, onSubmit, show}: any) {
+function PacketViewSettingsModal({
+        show,
+        setShow,
+        packetViewSettings,
+        setPacketViewSettings,
+    }: any) {
+
+    console.log(packetViewSettings)
+    let [newPacketViewSettings, setNewPacketViewSettings] = useState<PacketViewSettingsState>({...packetViewSettings})
+    const reset = () => setNewPacketViewSettings({...packetViewSettings})
+    const onHide = () => {
+        reset()
+        setShow(false)
+    }
+    const onApply = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        setPacketViewSettings({...newPacketViewSettings},
+        () => reset())
+        setShow(false)
+    }
+
     return (
         <Modal show={show} onHide={onHide} className='packet-view-modal'>
             <Modal.Header closeButton>
                 <Modal.Title>Packet View Settings</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form onSubmit={onSubmit}>
+                <Form onSubmit={onApply}>
                     <div className='packet-sort'>
                         <h5>Order</h5>
                         <InputGroup className="mb-3" size='sm'>
                             <InputGroup.Text id="basic-addon1">Sort by:</InputGroup.Text>
-                            <Form.Select size='sm'>
-                                <option value={Sort.timeDesc}>Time (Newest)</option>
-                                <option value={Sort.timeAsc}>Time (Oldest)</option>
-                                <option value={Sort.idAsc}>Node ID (Increasing)</option>
-                                <option value={Sort.idDesc}>Node ID (Decreasing)</option>
+                            <Form.Select
+                                size='sm'
+                                value={newPacketViewSettings.sort}
+                                onChange={(e) => setNewPacketViewSettings({...newPacketViewSettings, sort: e.target.value})}
+                            >
+                                <option value={Sort.TIME_DESC}>Time (Newest)</option>
+                                <option value={Sort.TIME_ASC}>Time (Oldest)</option>
+                                <option value={Sort.ID_ASC}>Node ID (Increasing)</option>
+                                <option value={Sort.ID_DESC}>Node ID (Decreasing)</option>
                             </Form.Select>
                         </InputGroup>
                     </div>
@@ -28,24 +54,48 @@ function PacketViewSettingsModal({onHide, onSubmit, show}: any) {
                             <Col>
                                 <InputGroup className='mb-3' size='sm'>
                                     <InputGroup.Text id='basic-addon2'>After:</InputGroup.Text>
-                                    <Form.Control size='sm' placeholder={'11T082554602'}/>
+                                    <Form.Control
+                                        size='sm'
+                                        placeholder={'11T082554602'}
+                                        value={newPacketViewSettings.after}
+                                        onChange={(e) => {
+                                            const value = e.target.value
+                                            setNewPacketViewSettings({...newPacketViewSettings, after: value === '' ? undefined : value})
+                                        }}
+                                    />
                                 </InputGroup>
                             </Col>
                             <Col>
                                 <InputGroup className='mb-3' size='sm'>
                                     <InputGroup.Text id='basic-addon3'>Before:</InputGroup.Text>
-                                    <Form.Control size='sm' placeholder={'11T082620711'}/>
+                                    <Form.Control
+                                        size='sm'
+                                        placeholder={'11T082620711'}
+                                        value={newPacketViewSettings.before}
+                                        onChange={(e) => {
+                                            const value = e.target.value
+                                            setNewPacketViewSettings({...newPacketViewSettings, before: value === '' ? undefined : value})
+                                        }}
+                                    />
                                 </InputGroup>
                             </Col>
                         </Row>
                         <InputGroup className='mb-3' size='sm'>
                             <InputGroup.Text id='basic-addon4'>Node:</InputGroup.Text>
-                            <Form.Control size='sm' placeholder={'18F0010B'}/>
+                            <Form.Control
+                                size='sm'
+                                placeholder={'18F0010B'}
+                                value={newPacketViewSettings.node}
+                                onChange={(e) =>{
+                                    const value = e.target.value
+                                    setNewPacketViewSettings({...newPacketViewSettings, node: value === '' ? undefined : value})
+                                }}
+                            />
                         </InputGroup>
                     </div>
                     <br />
-                    <Button variant="primary" size='sm' className='rounded-pill'>
-                        Reset
+                    <Button variant="primary" size='sm' className='rounded-pill' onClick={onHide}>
+                        Close
                     </Button>
                     &nbsp;
                     &nbsp;

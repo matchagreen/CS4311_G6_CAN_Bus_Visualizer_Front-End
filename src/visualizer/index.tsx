@@ -1,7 +1,9 @@
 import {useParams} from 'react-router-dom'
 import { useState } from 'react'
 import PacketContainer from './packetContainer'
+import { PacketSortOptions as PacketSort, PACKET_PAGE_SIZE} from '../common/Constants'
 import PacketViewSettingsModal from './PacketViewSettingsModal'
+import PacketViewSettingsState from './PacketViewSettingsState'
 import './index.css'
 
 function Visualizer() {
@@ -9,15 +11,13 @@ function Visualizer() {
 
     // Modal for changing packet view settings
     let [isShownPacketsModal, setIsShownPacketsModal] = useState(true)
-
-    const cancelPacketModalSettings = () => {
-        setIsShownPacketsModal(false)
-    }
-
-    const applyPacketModalSettings = (e: any) => {
-        e.preventDefault()
-        setIsShownPacketsModal(false)
-    }
+    let [packetViewSettings, setPacketViewSettings] = useState<PacketViewSettingsState>({
+        size: PACKET_PAGE_SIZE,
+        before: undefined,
+        after: undefined,
+        node: undefined,
+        sort: PacketSort.TIME_DESC
+    })
 
     // Other stuff
     
@@ -25,10 +25,11 @@ function Visualizer() {
         <div className='visualizer'>
             <PacketViewSettingsModal
                 show={isShownPacketsModal}
-                onHide={cancelPacketModalSettings}
-                onSubmit={applyPacketModalSettings}
+                setShow={setIsShownPacketsModal}
+                packetViewSettings={packetViewSettings}
+                setPacketViewSettings={setPacketViewSettings}
             />
-            <h1 className='visualizer-title'>{params.projectId}</h1>
+            <h1 className='visualizer-title' onClick={() => setIsShownPacketsModal(true)}>{params.projectId}</h1>
             <PacketContainer></PacketContainer>
         </div>
     )
