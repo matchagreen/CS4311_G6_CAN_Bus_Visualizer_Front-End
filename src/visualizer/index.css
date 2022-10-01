@@ -5,6 +5,16 @@ div.visualizer {
     height: 100vh;
 }
 
+.packet-view-modal .modal-content {
+    background-color: #17161b;
+}
+
+.packet-filter .form-control, .packet-sort .form-select {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #edeff3;
+}
+
 div.packet-container {
     flex: 1 0 auto;
 }
