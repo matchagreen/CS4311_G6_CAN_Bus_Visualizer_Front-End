@@ -53,33 +53,6 @@ function Intro() {
             </div>
         </div>
     );
-    // return (
-    //     <div className='page'>
-    //         <div className='task-title'>
-    //             <h1>CAN Bus Visualizer</h1>
-    //         </div>
-    //         <div className='task-buttons'>
-    //             <Button onClick={onProjects}>
-    //             <i className="fa fa-folder" aria-hidden="true"></i>
-    //             Projects
-    //             </Button>
-
-    //             <div className='space'></div>
-
-    //             <Button onClick={onSync}>
-    //             <i className="fa fa-superpowers" aria-hidden="true"></i>
-    //             Sync
-    //             </Button>
-
-    //             <div className='space'></div>
-                
-    //             <Button onClick={onCANBusVisualizer}>
-    //             <i className="fa fa-car" aria-hidden="true"></i>
-    //             CAN Bus Manager
-    //             </Button>
-    //         </div>
-    //     </div>
-    // )
 }
 
 export default Intro
