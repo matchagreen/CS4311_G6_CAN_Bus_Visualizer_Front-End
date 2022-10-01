@@ -8,7 +8,7 @@ function PacketContainer() {
     return (
         <div className='packet-container rounded'>
             <div className='packet-container-inner'>
-                <h6>Packets</h6>
+                <h3>Packets</h3>
                 <Button className='rounded-pill' size='sm'>
                     Fetch &nbsp;
                     <ArrowRepeat/>
