@@ -26,7 +26,7 @@ function PacketViewSettingsModal({
 
     return (
         <Modal show={show} onHide={onHide} className='packet-view-modal'>
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title>Packet View Settings</Modal.Title>
             </Modal.Header>
             <Modal.Body>
