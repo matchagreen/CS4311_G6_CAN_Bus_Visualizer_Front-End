@@ -13,6 +13,11 @@ function Projects() {
         const  path = './new'
         navigate(path)
     }
+
+    const onBackButtonClick = ()=> {
+      const path = './entrypoint'
+      navigate(path)
+    }
     const api = new APIUtil()
 
     function getProjectCards(){
@@ -20,7 +25,7 @@ function Projects() {
         return projects.map((val: ProjectCardState) => {
           return  <Dropdown as={ButtonGroup} className='mock-project' >
           <Button  className='inside-mock' variant="primary">{val.name}</Button>
-          <Dropdown.Toggle className='inside-mock'split variant="primary" id="dropdown-split-basic"/>
+          <Dropdown.Toggle className='inside-mock-dropdown'split variant="primary" id="dropdown-split-basic"/>
 
           <Dropdown.Menu>
             <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
@@ -32,6 +37,7 @@ function Projects() {
       }
 
     let projectCards = getProjectCards()
+
   return (
     <Tab.Container id='projectTabs' defaultActiveKey='activeProjects'>
       <Row>

@@ -43,10 +43,17 @@
 .inside-mock{
     background-color: orange;
     border-color: orange;
-}
+    width: 200px;
 
+}
+.inside-mock-dropdown{
+    background-color: orange;
+    border-color: orange;
+    
+}
 .projectHeader3{
-    margin: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 .tabColumn{
