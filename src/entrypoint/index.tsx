@@ -52,7 +52,7 @@ function Intro() {
                 </div>
             </div>
         </div>
-    );
+    );  
 }
 
 export default Intro
