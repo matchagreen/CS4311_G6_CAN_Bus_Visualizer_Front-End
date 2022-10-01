@@ -1,64 +1,53 @@
 .page {
-    position:relative;
-    height: 100vh; 
-    width:100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.page::before {
-    content: "";
     background-image: url('../type/tankImage.png');
     background-size: cover;
     background-position: center;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.16;
+    height: 100vh;
 }
 
-.task-title h1{
-    position: relative;
-    text-align: center;
-    bottom: 200px;
-    left: 550px
+.content {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
     
+}
+
+.task-title {
+    text-align: center;
+    position: relative;
+    top: 30%;
     
 }
 
 .task-buttons {
-    position: relative;
-    margin: 30px 0px;
-    right: 100px;
-    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 94%;
+    width: 100%;
+    
 }
 
 .task-buttons .btn-primary, .task-buttons .btn-primary:hover, .task-buttons.btn-primary:active, .task-buttons .btn-primary:visited {
-    position: relative;
-    background-color:#1c7e92  !important;    
+    /* background-color:#1c7e92  !important;     */
     color: white !important;
-    border-color: #1c7e92 !important;
+    /* border-color: #1c7e92 !important; */
     padding: 20px;
-    font-size: 26px;
+    font-size: 35px;
     margin: 4px 2px;
     width:30%;
-    border-radius: 100px;
-    
+    border-radius: 50px;    
 }
 
 
 .task-buttons .space {
-    position: relative;
     width: 30px;
     height: auto;
     display: inline-block;
-    
 }
 
-.fa.fa-folder, .fa.fa-superpowers, .fa.fa-car{
+.fa.fa-folder, .fa.fa-refresh, .fa.fa-car{
     padding-right: 10px;
 }
 
