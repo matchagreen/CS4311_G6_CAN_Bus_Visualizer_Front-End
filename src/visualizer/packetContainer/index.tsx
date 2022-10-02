@@ -4,7 +4,7 @@ import { ArrowRepeat, PlayFill, PauseFill } from "react-bootstrap-icons"
 import './index.css'
 import { useState } from "react"
 
-function PacketContainer() {
+function PacketContainer({fetchData, hasMore, packetList, refresh}: any) {
     let [isPlaying, setIsPlaying] = useState(true)
 
     return (
@@ -12,7 +12,7 @@ function PacketContainer() {
             <div className='packet-container-inner'>
                 <h3>Packets</h3>
                 <div className='packet-action-buttons'>
-                    <Button className='rounded-pill' size='sm'>
+                    <Button className='rounded-pill' size='sm' onClick={refresh}>
                         <ArrowRepeat/>
                         &nbsp;
                         Fetch
@@ -34,7 +34,11 @@ function PacketContainer() {
                     }
                 </div>
             </div>
-            <PacketList></PacketList>
+            <PacketList
+                fetchData={fetchData}
+                hasMore={hasMore}
+                packetList={packetList}
+            />
         </div>
     )
 }
