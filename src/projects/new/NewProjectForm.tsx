@@ -88,10 +88,10 @@ function NewProjectForm({state, setState}: stateProps) {
                 </div>
                 <br />
                 <div className='new-project-buttons'>
-                    <Button onClick={onCancel} variant='light' className='new-project-button-cancel rounded-pill'>Cancel
+                    <Button onClick={onCancel} className='new-project-button-cancel rounded-pill'>Cancel
                     </Button>
                     <div className='space'></div>
-                    <Button type='submit' variant='light' className='new-project-button-submit rounded-pill'>Create</Button>
+                    <Button type='submit' className='new-project-button-submit rounded-pill'>Create</Button>
                 </div>
             </Form>
         </div>
