@@ -5,6 +5,8 @@ import NodeMap from './nodeMap'
 import { PacketSortOptions as PacketSort, PACKET_PAGE_SIZE} from '../common/Constants'
 import PacketViewSettingsModal from './modals/PacketViewSettingsModal'
 import PacketViewSettingsState from './modals/PacketViewSettingsState'
+import EditPacketModal from './modals/EditPacketModal'
+import './modals/index.css';
 import './index.css'
 
 function Visualizer() {

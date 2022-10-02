@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
+
 function EditPacketModal() {
   const [show, setShow] = useState(false);
 
@@ -10,7 +11,7 @@ function EditPacketModal() {
   const handleShow = () => setShow(true);
 
   return (
-      <Modal show={show} onHide={handleClose} className='edit-packet-modal'>
+      <Modal onHide={handleClose} className='edit-packet-modal'>
         <Modal.Header closeButton>
           <Modal.Title>Edit Packet</Modal.Title>
         </Modal.Header>
@@ -53,7 +54,7 @@ function EditPacketModal() {
               className="mb-3"
               controlId="data"
             >
-              <Form.Label>Type</Form.Label>
+              <Form.Label>Data</Form.Label>
               <Form.Control 
                 type='text' 
                 placeholder='' 
@@ -63,11 +64,11 @@ function EditPacketModal() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClose} className='rounded-pill'>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Apply
+          <Button variant="primary" onClick={handleClose} className='rounded-pill'>
+            Send
           </Button>
         </Modal.Footer>
       </Modal>

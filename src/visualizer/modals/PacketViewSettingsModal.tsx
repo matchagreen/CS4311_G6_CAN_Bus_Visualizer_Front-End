@@ -94,7 +94,7 @@ function PacketViewSettingsModal({
                         </InputGroup>
                     </div>
                     <br />
-                    <Button variant="primary" size='sm' className='rounded-pill' onClick={onHide}>
+                    <Button variant="secondary" size='sm' className='rounded-pill' onClick={onHide}>
                         Close
                     </Button>
                     &nbsp;
