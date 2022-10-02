@@ -1,6 +1,7 @@
 import {useParams} from 'react-router-dom'
 import { useState } from 'react'
 import PacketContainer from './packetContainer'
+import NodeMap from './nodeMap'
 import { PacketSortOptions as PacketSort, PACKET_PAGE_SIZE} from '../common/Constants'
 import PacketViewSettingsModal from './PacketViewSettingsModal'
 import PacketViewSettingsState from './PacketViewSettingsState'
@@ -30,7 +31,14 @@ function Visualizer() {
                 setPacketViewSettings={setPacketViewSettings}
             />
             <h1 className='visualizer-title'>{params.projectId}</h1>
-            <PacketContainer></PacketContainer>
+            <div className='visualizer-content'>
+                <div className='packet-container-content'>
+                    <PacketContainer></PacketContainer>
+                </div>
+                <div className='node-map-container-content'>
+                    <NodeMap></NodeMap>
+                </div>
+            </div>
         </div>
     )
 }

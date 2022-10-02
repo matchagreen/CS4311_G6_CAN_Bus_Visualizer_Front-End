@@ -10,7 +10,7 @@ function PacketContainer() {
     return (
         <div className='packet-container rounded'>
             <div className='packet-container-inner'>
-                <h6>Packets</h6>
+                <h3>Packets</h3>
                 <div className='packet-action-buttons'>
                     <Button className='rounded-pill' size='sm'>
                         <ArrowRepeat/>
