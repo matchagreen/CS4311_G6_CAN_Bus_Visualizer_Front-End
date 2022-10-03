@@ -5,6 +5,7 @@ import NodeMap from './nodeMap'
 import { PacketSortOptions as PacketSort, PACKET_PAGE_SIZE} from '../common/Constants'
 import PacketViewSettingsModal from './PacketViewSettingsModal'
 import PacketViewSettingsState from './PacketViewSettingsState'
+import Menubar from '../components/Menubar';
 import APIUtil from '../utilities/APIutils'
 import PacketState from './packetContainer/PacketState'
 import './index.css'
@@ -99,6 +100,7 @@ function Visualizer() {
                 setPacketViewSettings={setPacketViewSettings}
             />
             <h1 className='visualizer-title'>{projectId}</h1>
+            <Menubar/>
             <div className='visualizer-content'>
                 <div className='packet-container-content'>
                     <PacketContainer
