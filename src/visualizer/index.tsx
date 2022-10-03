@@ -25,10 +25,9 @@ function Visualizer() {
     })
 
     // Packet retrieval and infinite list
-    let [parsedPacketList, setParsedPacketList]: Array<any> = useState([])
     let [packetList, setPacketList]: Array<any> = useState([])
     let [hasMorePackets, setHasMorePackets] = useState(true)
-    const parsePackets = (packets: PacketState[]) => packets.map((packet) => {
+    const renderPackets = packetList.map((packet: PacketState) => {
         return (
             <tr key={packet._id}>
                 <td>{packet.timestamp.toUpperCase()}</td>
@@ -55,9 +54,9 @@ function Visualizer() {
                 if (newPackets.length > 0) {
                     console.log(newPackets)
                     // Append to list
-                    const newParsedPackets = parsePackets(newPackets)
-                    setParsedPacketList(parsedPacketList.concat(newParsedPackets))
                     setPacketList(packetList.concat(newPackets))
+                } else {
+                    setHasMorePackets(false)
                 }
             },
             (error: any) => { // On failure
@@ -101,7 +100,7 @@ function Visualizer() {
                     <PacketContainer
                     fetchData={fetchPackets}
                     hasMore={hasMorePackets}
-                    packetList={parsedPacketList}
+                    packetList={renderPackets}
                     refresh={refreshPackets}
                     onPlay={onPlay}
                     />
