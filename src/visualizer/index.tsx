@@ -47,17 +47,16 @@ function Visualizer() {
             node: packetViewSettings.node,
             sort: packetViewSettings.sort
         }
-        console.log(viewSettings)
         api.getPackets(
             viewSettings,
             projectId,
             (response: any) => { // On success
                 const newPackets = response.data
+                const newParsedPackets = parsePackets(newPackets)
                 if (newPackets.length > 0) {
+                    console.log(newPackets)
                     // Append to list
-                    const newParsedPackets = parsePackets(newPackets)
-                    setPacketList(packetList.concat(newPackets))
-                    setParsedPacketList(packetList.concat(newParsedPackets))
+                    setParsedPacketList(parsedPacketList.concat(newParsedPackets))
                 }
             },
             (error: any) => { // On failure
@@ -66,7 +65,6 @@ function Visualizer() {
             }
         )
 
-        setHasMorePackets(false);
     }
     const refreshPackets = () => {
         // setPage(0)
