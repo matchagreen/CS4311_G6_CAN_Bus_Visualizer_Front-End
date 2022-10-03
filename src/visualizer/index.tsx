@@ -14,8 +14,19 @@ function Visualizer() {
 
     const api = new APIUtil()
 
+    // Modal for changing packet view settings
+    let [isShownPacketsModal, setIsShownPacketsModal] = useState(true)
+    let [packetViewSettings, setPacketViewSettings] = useState<PacketViewSettingsState>({
+        size: PACKET_PAGE_SIZE,
+        before: undefined,
+        after: undefined,
+        node: undefined,
+        sort: PacketSort.TIME_DESC
+    })
+
     // Packet retrieval and infinite list
     let [page, setPage] = useState(0)
+    let [parsedPacketList, setParsedPacketList]: Array<any> = useState([])
     let [packetList, setPacketList]: Array<any> = useState([])
     let [hasMorePackets, setHasMorePackets] = useState(true)
     const parsePackets = (packets: PacketState[]) => packets.map((packet) => {
@@ -29,11 +40,12 @@ function Visualizer() {
         )
     })
     const fetchPackets = () => {
-        const newData = api.getPackets(page)
-        const newPackets = parsePackets(newData)
+        const newPackets = api.getPackets(page)
+        const newParsedPackets = parsePackets(newPackets)
 
-        if (newData.length > 0) {
+        if (newPackets.length > 0) {
             setPacketList(packetList.concat(newPackets))
+            setParsedPacketList(parsedPacketList.concat(newParsedPackets))
             setPage(page + 1)
         } else {
             setHasMorePackets(false)
@@ -43,7 +55,7 @@ function Visualizer() {
         setPage(0)
         const newData = api.getPackets(page)
         const newPackets = parsePackets(newData)
-        setPacketList(newPackets)
+        setParsedPacketList(newPackets)
 
         if (newData.length > 0) {
             setPage(page + 1)
@@ -56,16 +68,7 @@ function Visualizer() {
         api.gatherTraffic(play, params.projectId!)
     }
 
-    // Modal for changing packet view settings
-    let [isShownPacketsModal, setIsShownPacketsModal] = useState(true)
-    let [packetViewSettings, setPacketViewSettings] = useState<PacketViewSettingsState>({
-        size: PACKET_PAGE_SIZE,
-        before: undefined,
-        after: undefined,
-        node: undefined,
-        sort: PacketSort.TIME_DESC
-    })
-
+    
     // Other stuff
     
     return (
@@ -82,7 +85,7 @@ function Visualizer() {
                     <PacketContainer
                     fetchData={fetchPackets}
                     hasMore={hasMorePackets}
-                    packetList={packetList}
+                    packetList={parsedPacketList}
                     refresh={refreshPackets}
                     onPlay={onPlay}
                     />
