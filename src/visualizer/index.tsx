@@ -15,7 +15,7 @@ function Visualizer() {
     const api = new APIUtil()
 
     // Modal for changing packet view settings
-    let [isShownPacketsModal, setIsShownPacketsModal] = useState(true)
+    let [isShownPacketsModal, setIsShownPacketsModal] = useState(false)
     let [packetViewSettings, setPacketViewSettings] = useState<PacketViewSettingsState>({
         size: PACKET_PAGE_SIZE,
         before: undefined,
