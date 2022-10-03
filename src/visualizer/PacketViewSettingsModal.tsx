@@ -10,7 +10,6 @@ function PacketViewSettingsModal({
         setPacketViewSettings,
     }: any) {
 
-    console.log(packetViewSettings)
     let [newPacketViewSettings, setNewPacketViewSettings] = useState<PacketViewSettingsState>({...packetViewSettings})
     const reset = () => setNewPacketViewSettings({...packetViewSettings})
     const onHide = () => {

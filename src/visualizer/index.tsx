@@ -10,7 +10,7 @@ import PacketState from './packetContainer/PacketState'
 import './index.css'
 
 function Visualizer() {
-    const params = useParams()
+    const projectId = useParams().projectId!
 
     const api = new APIUtil()
 
@@ -25,47 +25,64 @@ function Visualizer() {
     })
 
     // Packet retrieval and infinite list
-    let [page, setPage] = useState(0)
     let [parsedPacketList, setParsedPacketList]: Array<any> = useState([])
     let [packetList, setPacketList]: Array<any> = useState([])
     let [hasMorePackets, setHasMorePackets] = useState(true)
     const parsePackets = (packets: PacketState[]) => packets.map((packet) => {
         return (
-            <tr>
-                <td>{packet.timestamp}</td>
-                <td>{packet.id}</td>
-                <td>{packet.type}</td>
-                <td>{packet.data}</td>
+            <tr key={packet._id}>
+                <td>{packet.timestamp.toUpperCase()}</td>
+                <td>{packet.nodeId.toUpperCase()}</td>
+                <td>{packet.type.toUpperCase()}</td>
+                <td>{packet.data.toUpperCase()}</td>
             </tr>
         )
     })
     const fetchPackets = () => {
-        const newPackets = api.getPackets(page)
-        const newParsedPackets = parsePackets(newPackets)
-
-        if (newPackets.length > 0) {
-            setPacketList(packetList.concat(newPackets))
-            setParsedPacketList(parsedPacketList.concat(newParsedPackets))
-            setPage(page + 1)
-        } else {
-            setHasMorePackets(false)
+        const lastPacket: PacketState | undefined = packetList.length > 0 ? packetList[packetList.length] : null
+        const viewSettings: PacketViewSettingsState = {
+            size: packetViewSettings.size,
+            before: packetViewSettings.before,
+            after: lastPacket ? lastPacket.timestamp : undefined,
+            node: packetViewSettings.node,
+            sort: packetViewSettings.sort
         }
+        console.log(viewSettings)
+        api.getPackets(
+            viewSettings,
+            projectId,
+            (response: any) => { // On success
+                const newPackets = response.data
+                if (newPackets.length > 0) {
+                    // Append to list
+                    const newParsedPackets = parsePackets(newPackets)
+                    setPacketList(packetList.concat(newPackets))
+                    setParsedPacketList(packetList.concat(newParsedPackets))
+                }
+            },
+            (error: any) => { // On failure
+                console.log(error)
+                return
+            }
+        )
+
+        setHasMorePackets(false);
     }
     const refreshPackets = () => {
-        setPage(0)
-        const newData = api.getPackets(page)
-        const newPackets = parsePackets(newData)
-        setParsedPacketList(newPackets)
+        // setPage(0)
+        // const newData = api.getPackets(page)
+        // const newPackets = parsePackets(newData)
+        // setParsedPacketList(newPackets)
 
-        if (newData.length > 0) {
-            setPage(page + 1)
-        }
-        else {
-            setHasMorePackets(false)
-        }
+        // if (newData.length > 0) {
+        //     setPage(page + 1)
+        // }
+        // else {
+        //     setHasMorePackets(false)
+        // }
     }
     const onPlay = (play: boolean) => {
-        api.gatherTraffic(play, params.projectId!)
+        api.gatherTraffic(play, projectId)
     }
 
     
@@ -79,7 +96,7 @@ function Visualizer() {
                 packetViewSettings={packetViewSettings}
                 setPacketViewSettings={setPacketViewSettings}
             />
-            <h1 className='visualizer-title'>{params.projectId}</h1>
+            <h1 className='visualizer-title'>{projectId}</h1>
             <div className='visualizer-content'>
                 <div className='packet-container-content'>
                     <PacketContainer
