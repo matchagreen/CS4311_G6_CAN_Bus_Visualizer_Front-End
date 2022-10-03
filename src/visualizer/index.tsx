@@ -52,7 +52,6 @@ function Visualizer() {
             (response: any) => { // On success
                 const newPackets = response.data
                 if (newPackets.length > 0) {
-                    console.log(newPackets)
                     // Append to list
                     setPacketList(packetList.concat(newPackets))
                 } else {
@@ -64,20 +63,25 @@ function Visualizer() {
                 return
             }
         )
-
     }
     const refreshPackets = () => {
-        // setPage(0)
-        // const newData = api.getPackets(page)
-        // const newPackets = parsePackets(newData)
-        // setParsedPacketList(newPackets)
-
-        // if (newData.length > 0) {
-        //     setPage(page + 1)
-        // }
-        // else {
-        //     setHasMorePackets(false)
-        // }
+        api.getPackets(
+            packetViewSettings,
+            projectId,
+            (response: any) => { // On success
+                const newPackets = response.data
+                if (newPackets.length > 0) {
+                    // Append to list
+                    setPacketList(newPackets)
+                } else {
+                    setHasMorePackets(false)
+                }
+            },
+            (error: any) => { // On failure
+                console.log(error)
+                return
+            }
+        )
     }
     const onPlay = (play: boolean) => {
         api.gatherTraffic(play, projectId)
