@@ -2,6 +2,7 @@ import './index.css';
 import APIUtil from '../utilities/APIutils';
 import {useNavigate} from "react-router-dom";
 import ProjectCardState from './ProjectCardState';
+import NewProject from './new';
 import { Button, ButtonGroup, Col, Nav, Dropdown, Row, Tab, TabContainer, NavItem } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
@@ -9,13 +10,8 @@ function Projects() {
 
   let navigate = useNavigate();
 
-    const onNewProject = ()=> {
-        const  path = './new'
-        navigate(path)
-    }
-
     const onBackButtonClick = ()=> {
-      const path = './entrypoint'
+      const path = '/'
       navigate(path)
     }
     const api = new APIUtil()
@@ -37,8 +33,10 @@ function Projects() {
       }
 
     let projectCards = getProjectCards()
+    let newProjectForm = NewProject()
 
   return (
+    <div>
     <Tab.Container id='projectTabs' defaultActiveKey='activeProjects'>
       <Row>
         <Col sm={3} className='tabColumn'>
@@ -49,7 +47,7 @@ function Projects() {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey='newProject' onClick={onNewProject}>
+              <Nav.Link eventKey='newProject'>
                 Create Project
               </Nav.Link>
             </Nav.Item>
@@ -63,10 +61,18 @@ function Projects() {
                 Archived Projects
               </Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey='backToHome' onClick={onBackButtonClick}>
+                Back to Home
+              </Nav.Link>
+            </Nav.Item>
           </Nav>
         </Col>
         <Col sm={9}>
           <Tab.Content>
+            <Tab.Pane eventKey='newProject'>
+              {newProjectForm}
+            </Tab.Pane>
             <Tab.Pane eventKey='importProject'>
               <h3 className='projectHeader3'>Import Project</h3>
               Due to import project method not existing on backend this is empty
@@ -83,6 +89,8 @@ function Projects() {
         </Col>
       </Row>
     </Tab.Container>
+    </div>
+
   );
 }
 
