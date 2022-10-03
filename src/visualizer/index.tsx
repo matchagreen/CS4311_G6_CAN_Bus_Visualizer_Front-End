@@ -39,7 +39,7 @@ function Visualizer() {
         )
     })
     const fetchPackets = () => {
-        const lastPacket: PacketState | undefined = packetList.length > 0 ? packetList[packetList.length] : null
+        const lastPacket: PacketState | undefined = packetList.length > 0 ? packetList[packetList.length - 1] : null
         const viewSettings: PacketViewSettingsState = {
             size: packetViewSettings.size,
             before: packetViewSettings.before,
@@ -52,11 +52,12 @@ function Visualizer() {
             projectId,
             (response: any) => { // On success
                 const newPackets = response.data
-                const newParsedPackets = parsePackets(newPackets)
                 if (newPackets.length > 0) {
                     console.log(newPackets)
                     // Append to list
+                    const newParsedPackets = parsePackets(newPackets)
                     setParsedPacketList(parsedPacketList.concat(newParsedPackets))
+                    setPacketList(packetList.concat(newPackets))
                 }
             },
             (error: any) => { // On failure
