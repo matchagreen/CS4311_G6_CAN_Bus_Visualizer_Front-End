@@ -5,8 +5,8 @@ import {Navbar, Nav, NavDropdown, Form, FormControl} from 'react-bootstrap'
 export default function Menubar(){
   return (
     <div>
-    <Navbar bg="dark" expand="lg">
-      <Container>
+    <Navbar  expand="lg">
+      <Container id="rcorners1">
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
