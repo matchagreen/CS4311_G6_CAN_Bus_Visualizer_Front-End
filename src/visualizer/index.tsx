@@ -52,6 +52,9 @@ function Visualizer() {
             setHasMorePackets(false)
         }
     }
+    const onPlay = (play: boolean) => {
+        api.gatherTraffic(play, params.projectId!)
+    }
 
     // Modal for changing packet view settings
     let [isShownPacketsModal, setIsShownPacketsModal] = useState(true)
@@ -81,6 +84,7 @@ function Visualizer() {
                     hasMore={hasMorePackets}
                     packetList={packetList}
                     refresh={refreshPackets}
+                    onPlay={onPlay}
                     />
                 </div>
                 <div className='node-map-container-content'>

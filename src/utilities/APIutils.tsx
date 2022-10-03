@@ -17,6 +17,18 @@ class APIUtil {
             })
     }
 
+    gatherTraffic(play: boolean, projectId: string) {
+        return axios.put(this.url + '/projects/' + projectId + '/play', {
+            play: play
+        })
+            .then(function(response) {
+                console.log(response)
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
+    }
+
     getProjects(): Array<ProjectCardState> {
         return [
             {id: 1, name: 'Project PBJ'},
