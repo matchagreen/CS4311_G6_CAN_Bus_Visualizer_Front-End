@@ -23,7 +23,7 @@ div.packet-container {
 
 h1.visualizer-title {
     flex: 0 0 auto;
-    padding: 30px;
+    padding-left: 30px;
 }
 
 div.visualizer-content {
