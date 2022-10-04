@@ -1,0 +1,42 @@
+div.visualizer {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+
+.packet-view-modal .modal-content {
+    background-color: #17161b;
+}
+
+.packet-filter .form-control, .packet-sort .form-select {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #edeff3;
+}
+
+div.packet-container {
+    flex: 1 0 auto;
+}
+
+h1.visualizer-title {
+    flex: 0 0 auto;
+    padding: 30px;
+}
+
+div.visualizer-content {
+    display: flex;
+    flex: 1 0 auto;
+}
+
+div.packet-container-content {
+    display: flex;
+    flex: 0 0 auto;
+}
+
+div.node-map-container-content {
+    display: flex;
+    flex: 1 0 auto;
+}

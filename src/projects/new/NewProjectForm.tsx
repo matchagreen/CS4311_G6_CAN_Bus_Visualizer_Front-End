@@ -33,8 +33,8 @@ function NewProjectForm({state, setState}: stateProps) {
                         <Form.Control
                             type='text'
                             name='projectName'
-                            value={state.name}
-                            onChange={(e)=>setState({...state, name: e.target.value})}
+                            value={state.eventName}
+                            onChange={(e)=>setState({...state, eventName: e.target.value})}
                             placeholder='Project name'
                             required
                         />
@@ -56,7 +56,7 @@ function NewProjectForm({state, setState}: stateProps) {
                             type='number'
                             name='baudRate'
                             placeholder='9600'
-                            onChange={e=>setState({...state, baud_rate: parseInt(e.target.value) || state.baud_rate})}
+                            onChange={e=>setState({...state, baudRate: parseInt(e.target.value) || state.baudRate})}
                             required
                             min='1'
                         />
@@ -69,7 +69,7 @@ function NewProjectForm({state, setState}: stateProps) {
                                 let target = (e.target as HTMLInputElement)
                                 const reader = new FileReader()
                                 reader.readAsText(target.files![0])
-                                reader.onload = () => setState({...state, dbc_file: reader.result as string})
+                                reader.onload = () => setState({...state, dbcFile: reader.result as string})
                             }}
                         />
                     </Form.Group>
@@ -81,17 +81,17 @@ function NewProjectForm({state, setState}: stateProps) {
                                 let target = (e.target as HTMLInputElement)
                                 const reader = new FileReader()
                                 reader.readAsText(target.files![0])
-                                reader.onload = () => setState({...state, blacklist_file: reader.result as string})
+                                reader.onload = () => setState({...state, blacklistFile: reader.result as string})
                             }}
                         />
                     </Form.Group>
                 </div>
                 <br />
                 <div className='new-project-buttons'>
-                    <Button onClick={onCancel} variant='light' className='new-project-button-cancel rounded-pill'>Cancel
+                    <Button onClick={onCancel} className='new-project-button-cancel rounded-pill'>Cancel
                     </Button>
                     <div className='space'></div>
-                    <Button type='submit' variant='light' className='new-project-button-submit rounded-pill'>Create</Button>
+                    <Button type='submit' className='new-project-button-submit rounded-pill'>Create</Button>
                 </div>
             </Form>
         </div>
