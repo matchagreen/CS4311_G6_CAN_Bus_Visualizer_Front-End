@@ -6,13 +6,17 @@ import { PacketSortOptions as PacketSort, PACKET_PAGE_SIZE} from '../common/Cons
 import PacketViewSettingsModal from './PacketViewSettingsModal'
 import PacketViewSettingsState from './PacketViewSettingsState'
 import Menubar from '../components/Menubar';
+import APIUtil from '../utilities/APIutils'
+import PacketState from './packetContainer/PacketState'
 import './index.css'
 
 function Visualizer() {
-    const params = useParams()
+    const projectId = useParams().projectId!
+
+    const api = new APIUtil()
 
     // Modal for changing packet view settings
-    let [isShownPacketsModal, setIsShownPacketsModal] = useState(true)
+    let [isShownPacketsModal, setIsShownPacketsModal] = useState(false)
     let [packetViewSettings, setPacketViewSettings] = useState<PacketViewSettingsState>({
         size: PACKET_PAGE_SIZE,
         before: undefined,
@@ -21,6 +25,70 @@ function Visualizer() {
         sort: PacketSort.TIME_DESC
     })
 
+    // Packet retrieval and infinite list
+    let [packetList, setPacketList]: Array<any> = useState([])
+    let [hasMorePackets, setHasMorePackets] = useState(true)
+    const renderPackets = packetList.map((packet: PacketState) => {
+        return (
+            <tr key={packet._id}>
+                <td>{packet.timestamp.toUpperCase()}</td>
+                <td>{packet.nodeId.toUpperCase()}</td>
+                <td>{packet.type.toUpperCase()}</td>
+                <td>{packet.data.toUpperCase()}</td>
+            </tr>
+        )
+    })
+    const fetchPackets = () => {
+        const lastPacket: PacketState | undefined = packetList.length > 0 ? packetList[packetList.length - 1] : null
+        const viewSettings: PacketViewSettingsState = {
+            size: packetViewSettings.size,
+            before: packetViewSettings.before,
+            after: lastPacket ? lastPacket.timestamp : undefined,
+            node: packetViewSettings.node,
+            sort: packetViewSettings.sort
+        }
+        api.getPackets(
+            viewSettings,
+            projectId,
+            (response: any) => { // On success
+                const newPackets = response.data
+                if (newPackets.length > 0) {
+                    // Append to list
+                    setPacketList(packetList.concat(newPackets))
+                } else {
+                    setHasMorePackets(false)
+                }
+            },
+            (error: any) => { // On failure
+                console.log(error)
+                return
+            }
+        )
+    }
+    const refreshPackets = () => {
+        api.getPackets(
+            packetViewSettings,
+            projectId,
+            (response: any) => { // On success
+                const newPackets = response.data
+                if (newPackets.length > 0) {
+                    // Append to list
+                    setPacketList(newPackets)
+                } else {
+                    setHasMorePackets(false)
+                }
+            },
+            (error: any) => { // On failure
+                console.log(error)
+                return
+            }
+        )
+    }
+    const onPlay = (play: boolean) => {
+        api.gatherTraffic(play, projectId)
+    }
+
+    
     // Other stuff
     
     return (
@@ -31,11 +99,17 @@ function Visualizer() {
                 packetViewSettings={packetViewSettings}
                 setPacketViewSettings={setPacketViewSettings}
             />
-            <h1 className='visualizer-title'>{params.projectId}</h1>
+            <h1 className='visualizer-title'>{projectId}</h1>
             <Menubar/>
             <div className='visualizer-content'>
                 <div className='packet-container-content'>
-                    <PacketContainer></PacketContainer>
+                    <PacketContainer
+                    fetchData={fetchPackets}
+                    hasMore={hasMorePackets}
+                    packetList={renderPackets}
+                    refresh={refreshPackets}
+                    onPlay={onPlay}
+                    />
                 </div>
                 <div className='node-map-container-content'>
                     <NodeMap></NodeMap>
