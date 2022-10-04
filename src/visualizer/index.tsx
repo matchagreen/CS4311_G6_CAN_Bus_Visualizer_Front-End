@@ -83,6 +83,8 @@ function Visualizer() {
                 return
             }
         )
+        let elem = document.getElementById('packet-table')
+        elem?.scrollTo(0, 0)
     }
     const onPlay = (play: boolean) => {
         api.gatherTraffic(play, projectId)

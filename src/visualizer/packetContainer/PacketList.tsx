@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap"
 
 function PacketList({fetchData, hasMore, packetList}: any) {
     return (
-        <div className='packet-table rounded'>
+        <div className='packet-table rounded' id='packet-table'>
             <InfiniteScroll
                 pageStart={0}
                 loadMore={fetchData}
