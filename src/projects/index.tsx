@@ -14,6 +14,7 @@ function Projects() {
       const path = '/'
       navigate(path)
     }
+    
     const api = new APIUtil()
 
     function getProjectCards(){
@@ -90,7 +91,6 @@ function Projects() {
       </Row>
     </Tab.Container>
     </div>
-
   );
 }
 
