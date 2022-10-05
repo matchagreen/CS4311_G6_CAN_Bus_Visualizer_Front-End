@@ -41,14 +41,15 @@
 }
 
 .inside-mock{
-    background-color: orange;
-    border-color: orange;
+    color: black;
+    background-color: #FFA900;
+    border-color: #FFA900;
     width: 200px;
 
 }
 .inside-mock-dropdown{
-    background-color: orange;
-    border-color: orange;
+    background-color: #FFA900;
+    border-color: #FFA900;
     
 }
 .projectHeader3{
