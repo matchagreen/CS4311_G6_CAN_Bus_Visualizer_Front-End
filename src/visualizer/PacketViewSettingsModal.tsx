@@ -4,8 +4,8 @@ import { useState } from 'react'
 import PacketViewSettingsState from './PacketViewSettingsState'
 
 function PacketViewSettingsModal({
-        show,
-        setShow,
+        isShown,
+        setHide,
         packetViewSettings,
         setPacketViewSettings,
     }: any) {
@@ -14,17 +14,17 @@ function PacketViewSettingsModal({
     const reset = () => setNewPacketViewSettings({...packetViewSettings})
     const onHide = () => {
         reset()
-        setShow(false)
+        setHide()
     }
     const onApply = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setPacketViewSettings({...newPacketViewSettings},
         () => reset())
-        setShow(false)
+        setHide()
     }
 
     return (
-        <Modal show={show} onHide={onHide} className='packet-view-modal'>
+        <Modal show={isShown} onHide={onHide} className='packet-view-modal'>
             <Modal.Header>
                 <Modal.Title>Packet View Settings</Modal.Title>
             </Modal.Header>

@@ -2,7 +2,11 @@ import Container from 'react-bootstrap/Container';
 import './index.css';
 
 import {Navbar, Nav, NavDropdown, Form, FormControl} from 'react-bootstrap'
-export default function Menubar(){
+export default function Menubar({
+      showPacketViewSettingsModal,
+      hidePacketViewSettingsModal
+    } : any
+    ){
   return (
     <div>
     <Navbar  expand="lg">
@@ -29,6 +33,7 @@ export default function Menubar(){
               <NavDropdown.Item id="action" href="#action/3.2"> Replay Packets </NavDropdown.Item>
               <NavDropdown.Item id="action" href="#action/3.1"> Save Packets </NavDropdown.Item>
               <NavDropdown.Item id="action" href="#action/3.2"> Annotate Packets </NavDropdown.Item>
+              <NavDropdown.Item id='action' onClick={showPacketViewSettingsModal}>Filter and Sort</NavDropdown.Item>
               
             </NavDropdown>
 

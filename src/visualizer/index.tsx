@@ -24,6 +24,8 @@ function Visualizer() {
         node: undefined,
         sort: PacketSort.TIME_DESC
     })
+    const showPacketViewSettingsModal = () => setIsShownPacketsModal(true)
+    const hidePacketViewSettingsModal = () => setIsShownPacketsModal(false)
 
     // Packet retrieval and infinite list
     let [packetList, setPacketList]: Array<any> = useState([])
@@ -96,13 +98,16 @@ function Visualizer() {
     return (
         <div className='visualizer'>
             <PacketViewSettingsModal
-                show={isShownPacketsModal}
-                setShow={setIsShownPacketsModal}
+                isShown={isShownPacketsModal}
+                setHide={hidePacketViewSettingsModal}
                 packetViewSettings={packetViewSettings}
                 setPacketViewSettings={setPacketViewSettings}
             />
             <h1 className='visualizer-title'>{projectId}</h1>
-            <Menubar/>
+            <Menubar
+                showPacketViewSettingsModal={showPacketViewSettingsModal}
+                hidePacketViewSettingsModal={hidePacketViewSettingsModal}
+            />
             <div className='visualizer-content'>
                 <div className='packet-container-content'>
                     <PacketContainer
