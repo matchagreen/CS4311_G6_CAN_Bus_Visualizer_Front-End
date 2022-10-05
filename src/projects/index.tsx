@@ -21,8 +21,8 @@ function Projects() {
       let projects = api.getProjects()
         return projects.map((val: ProjectCardState) => {
           return  <Dropdown as={ButtonGroup} className='mock-project' >
-          <Button  className='inside-mock' variant="primary">{val.name}</Button>
-          <Dropdown.Toggle className='inside-mock-dropdown'split variant="primary" id="dropdown-split-basic"/>
+          <Button  className='inside-mock' variant="warning">{val.name}</Button>
+          <Dropdown.Toggle className='inside-mock-dropdown'split variant="warning" id="dropdown-split-basic"/>
 
           <Dropdown.Menu>
             <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>

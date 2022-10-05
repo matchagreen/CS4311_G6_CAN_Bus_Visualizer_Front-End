@@ -41,17 +41,10 @@
 }
 
 .inside-mock{
-    color: black;
-    background-color: #FFA900;
-    border-color: #FFA900;
     width: 200px;
 
 }
-.inside-mock-dropdown{
-    background-color: #FFA900;
-    border-color: #FFA900;
-    
-}
+
 .projectHeader3{
     margin-top: 20px;
     margin-left: 20px;
