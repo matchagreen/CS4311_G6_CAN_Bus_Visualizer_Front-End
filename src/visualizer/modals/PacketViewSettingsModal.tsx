@@ -1,5 +1,5 @@
 import { InputGroup, Row, Col, Modal, Form, Button} from 'react-bootstrap'
-import { PacketSortOptions as Sort} from '../common/Constants'
+import { PacketSortOptions as Sort} from '../../common/Constants'
 import { useState } from 'react'
 import PacketViewSettingsState from './PacketViewSettingsState'
 
@@ -93,7 +93,7 @@ function PacketViewSettingsModal({
                         </InputGroup>
                     </div>
                     <br />
-                    <Button variant="primary" size='sm' className='rounded-pill' onClick={onHide}>
+                    <Button variant="secondary" size='sm' className='rounded-pill' onClick={onHide}>
                         Close
                     </Button>
                     &nbsp;

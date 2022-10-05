@@ -3,12 +3,13 @@ import { useState } from 'react'
 import PacketContainer from './packetContainer'
 import NodeMap from './nodeMap'
 import { PacketSortOptions as PacketSort, PACKET_PAGE_SIZE} from '../common/Constants'
-import PacketViewSettingsModal from './PacketViewSettingsModal'
-import PacketViewSettingsState from './PacketViewSettingsState'
+import PacketViewSettingsModal from './modals/PacketViewSettingsModal'
+import PacketViewSettingsState from './modals/PacketViewSettingsState'
 import Menubar from '../components/Menubar';
 import APIUtil from '../utilities/APIutils'
 import PacketState from './packetContainer/PacketState'
 import './index.css'
+import './modals/index.css'
 
 function Visualizer() {
     const projectId = useParams().projectId!

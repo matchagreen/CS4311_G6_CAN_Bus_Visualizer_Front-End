@@ -1,7 +1,7 @@
 import ProjectState from "../projects/new/ProjectState"
 import ProjectCardState from "../projects/ProjectCardState"
 import PacketState from "../visualizer/packetContainer/PacketState"
-import PacketViewSettingsState from "../visualizer/PacketViewSettingsState"
+import PacketViewSettingsState from "../visualizer/modals/PacketViewSettingsState"
 import axios from 'axios'
 
 
