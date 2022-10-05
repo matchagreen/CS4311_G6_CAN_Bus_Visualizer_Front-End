@@ -1,131 +1,97 @@
 import './index.css';
-import Button from 'react-bootstrap/Button';
-import Dropdown from 'react-bootstrap/Dropdown';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import APIUtil from '../utilities/APIutils';
 import {useNavigate} from "react-router-dom";
-import { ButtonGroup } from 'react-bootstrap';
+import ProjectCardState from './ProjectCardState';
+import NewProject from './new';
+import { Button, ButtonGroup, Col, Nav, Dropdown, Row, Tab, TabContainer, NavItem } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 function Projects() {
 
   let navigate = useNavigate();
 
-    const onNewProject = ()=> {
-        const  path = './new'
-        navigate(path)
-    }
-
-    const onArchives = ()=> {
-      const  path = './archives'
+    const onBackButtonClick = ()=> {
+      const path = '/'
       navigate(path)
     }
+    
+    const api = new APIUtil()
 
-    const on404 = ()=> {
-      const  path = './pageNotFound'
-      navigate(path)
-    }
-  
-  return (
-    <>
-    <Container className='container'>
-      {/* Stack the columns on mobile by making one full-width and the other half-width */}
-      <header className='header'>
-        <Dropdown >
-          <Dropdown.Toggle className='dropdown' variant="success" id="dropdown-basic">
-            Projects
-          </Dropdown.Toggle>
+    function getProjectCards(){
+      let projects = api.getProjects()
+        return projects.map((val: ProjectCardState) => {
+          return  <Dropdown as={ButtonGroup} className='mock-project' >
+          <Button  className='inside-mock' variant="primary">{val.name}</Button>
+          <Dropdown.Toggle className='inside-mock-dropdown'split variant="primary" id="dropdown-split-basic"/>
 
           <Dropdown.Menu>
-            <Dropdown.Item onClick={onArchives}>Archives</Dropdown.Item>
+            <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
+            <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
+            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
           </Dropdown.Menu>
-
         </Dropdown>
-      </header>
+        })
+      }
 
+    let projectCards = getProjectCards()
+    let newProjectForm = NewProject()
+
+  return (
+    <div>
+    <Tab.Container id='projectTabs' defaultActiveKey='activeProjects'>
       <Row>
-
-        <Col className='col' xs={4} md={2}>
-          <div className='side-bar' > 
-            <Button className = "side-buttons" onClick={onNewProject}>New</Button>
-            <br></br>
-            <Button className = "side-buttons">Import</Button>
-          </div>
+        <Col sm={3} className='tabColumn'>
+          <Nav variant='pills' className='flex-column'>
+            <Nav.Item>
+              <Nav.Link eventKey='importProject'>
+                Import Project
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey='newProject'>
+                Create Project
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey='activeProjects'>
+                Active Projects
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey='archivedProjects'>
+                Archived Projects
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey='backToHome' onClick={onBackButtonClick}>
+                Back to Home
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
         </Col>
-
-        <Col className='col' xs={14} md={10}>
-
-            <Dropdown as={ButtonGroup} className='mock-project' >
-            
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 1</Button>
-
-              <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown as={ButtonGroup} className='mock-project'>
-            
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 2</Button>
-
-              <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown as={ButtonGroup} className='mock-project'>
-            
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 3</Button>
-
-              <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown as={ButtonGroup} className='mock-project'>
-            
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 4</Button>
-
-              <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown as={ButtonGroup} className='mock-project'>
-            
-              <Button onClick = {on404} className='inside-mock' variant="success">Project 5</Button>
-
-              <Dropdown.Toggle className='inside-mock'split variant="success" id="dropdown-split-basic" />
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Archive</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Duplicate</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
-
+        <Col sm={9}>
+          <Tab.Content>
+            <Tab.Pane eventKey='newProject'>
+              {newProjectForm}
+            </Tab.Pane>
+            <Tab.Pane eventKey='importProject'>
+              <h3 className='projectHeader3'>Import Project</h3>
+              Due to import project method not existing on backend this is empty
+            </Tab.Pane>
+            <Tab.Pane eventKey='activeProjects'>
+              <h3 className='projectHeader3'>Active Projects</h3>
+              {projectCards}
+            </Tab.Pane>
+            <Tab.Pane eventKey='archivedProjects'>
+              <h3 className='projectHeader3'>Archived Projects</h3>
+              {projectCards}
+            </Tab.Pane>
+          </Tab.Content>
         </Col>
       </Row>
-    </Container>
-    </>
+    </Tab.Container>
+    </div>
   );
 }
-
 
 export default Projects;

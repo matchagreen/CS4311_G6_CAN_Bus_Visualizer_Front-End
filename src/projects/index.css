@@ -41,18 +41,22 @@
 }
 
 .inside-mock{
-    width: 100px;;
-    height: 50px;
-    background-color: #2900C2  !important;
-    border-color:#2900C2 !important;
+    color: black;
+    background-color: #FFA900;
+    border-color: #FFA900;
+    width: 200px;
+
+}
+.inside-mock-dropdown{
+    background-color: #FFA900;
+    border-color: #FFA900;
     
 }
-
-
-.link{
-    color: white;
-    text-decoration: none;
-    position: center;
+.projectHeader3{
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
-
+.tabColumn{
+    margin-top: 13px;
+}
