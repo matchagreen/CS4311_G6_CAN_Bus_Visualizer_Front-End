@@ -1,8 +1,10 @@
 interface PacketState {
     timestamp: string,
-    id: string,
-    type: number,
+    _id: string,
+    nodeId: string
+    type: string,
     data: string
+    projectId: string
 }
 
 export default PacketState

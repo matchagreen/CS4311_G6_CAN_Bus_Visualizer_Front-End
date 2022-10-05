@@ -1,38 +1,9 @@
-import { useState } from "react"
 import InfiniteScroll from 'react-infinite-scroller'
 import { Table } from "react-bootstrap"
-import APIUtil from "../../utilities/APIutils"
 
-function PacketList() {
-    const api = new APIUtil()
-
-    let [page, setPage] = useState(0)
-    let [data, setData]: Array<any> = useState([])
-    let [hasMore, setHasMore] = useState(true)
-    const fetchData = () => {
-        const newData = api.getPackets(page)
-        const newPackets = newData.map((packet) => {
-            return (
-                <tr>
-                    <td>{packet.timestamp}</td>
-                    <td>{packet.id}</td>
-                    <td>{packet.type}</td>
-                    <td>{packet.data}</td>
-                </tr>
-            )
-        })
-
-        if (newData.length > 0) {
-            setData(data.concat(newPackets))
-            setPage(page + 1)
-        } else {
-            setHasMore(false)
-        }
- 
-    }
-
+function PacketList({fetchData, hasMore, packetList}: any) {
     return (
-        <div className='packet-table rounded'>
+        <div className='packet-table rounded' id='packet-table'>
             <InfiniteScroll
                 pageStart={0}
                 loadMore={fetchData}
@@ -50,7 +21,7 @@ function PacketList() {
                         </tr>
                     </thead>
                     <tbody>
-                        {data}
+                        {packetList}
                     </tbody>
                 </Table>
             </InfiniteScroll>
