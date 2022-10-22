@@ -18,7 +18,7 @@ function EditPacketModal() {
         <Modal.Body>
           <Form>
             <Form.Group className="mb-3" controlId="time">
-              <Form.Label>Time</Form.Label>
+              <Form.Label className='label'>Time</Form.Label>
               <Form.Control
                 type="text"
                 placeholder=""
@@ -30,7 +30,7 @@ function EditPacketModal() {
               className="mb-3"
               controlId="id"
             >
-              <Form.Label>ID</Form.Label>
+              <Form.Label className='label'>ID</Form.Label>
               <Form.Control 
                 type='text' 
                 placeholder='' 
@@ -42,7 +42,7 @@ function EditPacketModal() {
               className="mb-3"
               controlId="type"
             >
-              <Form.Label>Type</Form.Label>
+              <Form.Label className='label'>Type</Form.Label>
               <Form.Control 
                 type='text' 
                 placeholder='' 
@@ -54,7 +54,7 @@ function EditPacketModal() {
               className="mb-3"
               controlId="data"
             >
-              <Form.Label>Data</Form.Label>
+              <Form.Label className='label'>Data</Form.Label>
               <Form.Control 
                 type='text' 
                 placeholder='' 

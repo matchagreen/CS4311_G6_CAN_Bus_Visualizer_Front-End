@@ -10,6 +10,7 @@ import APIUtil from '../utilities/APIutils'
 import PacketState from './packetContainer/PacketState'
 import './index.css'
 import './modals/index.css'
+import EditNodeModal from './modals/EditNodeModal'
 
 function Visualizer() {
     const projectId = useParams().projectId!
@@ -98,12 +99,13 @@ function Visualizer() {
     
     return (
         <div className='visualizer'>
-            <PacketViewSettingsModal
+            {/* <PacketViewSettingsModal
                 isShown={isShownPacketsModal}
                 setHide={hidePacketViewSettingsModal}
                 packetViewSettings={packetViewSettings}
                 setPacketViewSettings={setPacketViewSettings}
-            />
+            /> */}
+            <EditNodeModal></EditNodeModal>
             <h1 className='visualizer-title'>{projectId}</h1>
             <Menubar
                 showPacketViewSettingsModal={showPacketViewSettingsModal}
